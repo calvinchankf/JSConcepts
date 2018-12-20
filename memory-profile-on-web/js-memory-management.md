@@ -6,9 +6,9 @@ Detail
 ----
 According to [google](https://developers.google.com/web/tools/chrome-devtools/memory-problems/memory-101), we can think of V8 storing objects in a graph. Periodically, the V8 garbage-collector starts traversing the nodes from the root, find all nodes that are not referenced from the root and then eliminate them to free some space(memory).
 
-**Mark and Sweep Algorithm**
+It is accomplished by using **Mark and Sweep Algorithm**
 
-**Mark phase**
+**Mark phase**: garbage-collector marks all the accessable nodes
 ```
 Mark(root)
     If markedBit(root) == false then
@@ -17,7 +17,7 @@ Mark(root)
              Mark(child)
 ```
 
-**Sweep phase**
+**Sweep phase**: garbage-collector removes the unaccessible nodes
 ```
 Sweep()
 For each obj in heap

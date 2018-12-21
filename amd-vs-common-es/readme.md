@@ -9,7 +9,7 @@ AMD(Asynchronous Module Definition)
 - actually its being obsolete now
 
 e.g. export
-```
+```js
 // lib.js
 define(["package/lib"], function (lib) {
   function foo() {
@@ -22,7 +22,7 @@ define(["package/lib"], function (lib) {
 });
 ```
 import
-```
+```js
 // in another file
 require(["package/lib"], function(myModule) {
   myModule.foo();
@@ -35,7 +35,7 @@ CommonJS
 - designed for server side
 
 e.g. export
-```
+```js
 // lib.js
 function foo(){
   console.log("hello foo!");
@@ -45,7 +45,7 @@ function foo(){
 exports.foo = foo;
 ```
 import
-```
+```js
 // in another file
 var lib = require("package/lib");
 lib.foo()
@@ -57,14 +57,14 @@ ES2015(or above)
 - static
 
 e.g. export
-```
+```js
 //lib.js
 export function foo() {
   consol.log("hello foo!")
 }
 ```
 import
-```
+```js
 import lib, { foo } from 'package/lib'
 lib.foo()
 foo() // or just import { foo } so that we can just use it without "lib."

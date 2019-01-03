@@ -23,3 +23,7 @@ NodeJs
 Browser
 ---
 1. [How Browsers Render a Website](/browser-render/readme.md)
+
+How to implement
+---
+1. [Array Map](/array/map/index.js)

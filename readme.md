@@ -26,4 +26,5 @@ Browser
 
 How to implement
 ---
-1. [Array Map](/array/map/index.js)
+1. [Array Map](/array/map.js)
+1. [Array Filter](/array/filter.js)

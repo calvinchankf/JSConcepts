@@ -1,6 +1,8 @@
-// classic interivew question
-// Implementation the Array Map
-// here is my least implementation to extend the Array class using protoype
+/*
+  classic interivew question
+  Implementation the Array Map
+  here is my least implementation to extend the Array class using protoype
+*/
 if (!Array.prototype.myMap) {
   Array.prototype.myMap = function (callback) {
     if (typeof callback !== 'function') {

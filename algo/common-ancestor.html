@@ -16,11 +16,14 @@
   <script>
     /*
       Given 2 DOM elements, return the lowest common ancestor of both DOM elements
-      DOM element attributes
+    */
+
+    /*
+      1st approach
       - for a node, traverse the children recursively to look for the target
       - if cant find, do it again for its parent
       Time  O(n^2) so many redundant computation
-      Space O(n) recursive callstack
+      Space O(n^2) recursive callstack
     */
     function lowestCommonAncestor(a, b) {
       const temp = dfs(a, a, b)
@@ -48,6 +51,38 @@
       return result
     }
 
+    /*
+      2nd approach
+      - use the root instead of using parrent, it helps reduce computation by top-down traversal
+      - similar to https://github.com/calvinchankf/AlGoDaily/tree/master/leetcode/236-lowest-common-ancestor-of-a-binary-tree
+      Time  O(n)
+      Space O(n) callstack
+    */
+    function lowestCommonAncestor(a, b) {
+      return dfs(document.body, a, b)
+    }
+
+    function dfs(root, p, q) {
+      if (root === undefined || root.id == p.id || root.id == q.id) {
+        return root
+      }
+      let result = []
+      for (let i = 0; i < root.children.length; i++) {
+        const child = root.children[i]
+        const temp = dfs(child, p, q)
+        if (temp !== undefined) {
+          result.push(temp)
+        }
+      }
+      if (result.length == 2) {
+        return root
+      }
+      if (result.length == 1) {
+        return result[0]
+      }
+      return
+    }
+
     // test
     const a = document.getElementById("a")
     const b = document.getElementById("b")
@@ -55,10 +90,10 @@
     const d = document.getElementById("d")
     const e = document.getElementById("e")
     const f = document.getElementById("f")
-    console.log(lowestCommonAncestor(a, b))
-    console.log(lowestCommonAncestor(c, d))
-    console.log(lowestCommonAncestor(e, f))
-    console.log(lowestCommonAncestor(d, e))
+    console.log(lowestCommonAncestor(a, b)) // a
+    console.log(lowestCommonAncestor(c, d)) // c
+    console.log(lowestCommonAncestor(e, f)) // b
+    console.log(lowestCommonAncestor(d, e)) // b
 
   </script>
 

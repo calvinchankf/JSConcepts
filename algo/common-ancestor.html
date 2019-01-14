@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+  <div id="a">a
+    <div id="b">-b
+      <div id="c">--c
+        <div id="d">---d</div>
+      </div>
+      <div id="e">--e</div>
+      <div id="f">--f</div>
+    </div>
+  </div>
+
+  <script>
+    /*
+      Given 2 DOM elements, return the lowest common ancestor of both DOM elements
+      DOM element attributes
+      - for a node, traverse the children recursively to look for the target
+      - if cant find, do it again for its parent
+      Time  O(n^2) so many redundant computation
+      Space O(n) recursive callstack
+    */
+    function lowestCommonAncestor(a, b) {
+      const temp = dfs(a, a, b)
+      if (temp !== undefined) {
+        return temp
+      }
+      return lowestCommonAncestor(a.parentNode, b)
+    }
+
+    function dfs(root, node, target) {
+      if (node === undefined || target === undefined) {
+        return undefined
+      }
+      if (node.id == target.id) {
+        return root
+      }
+      let result = undefined
+      for (let i = 0; i < node.children.length; i++) {
+        const child = node.children[i]
+        const temp = dfs(root, child, target)
+        if (temp !== undefined) {
+          result = temp
+        }
+      }
+      return result
+    }
+
+    // test
+    const a = document.getElementById("a")
+    const b = document.getElementById("b")
+    const c = document.getElementById("c")
+    const d = document.getElementById("d")
+    const e = document.getElementById("e")
+    const f = document.getElementById("f")
+    console.log(lowestCommonAncestor(a, b))
+    console.log(lowestCommonAncestor(c, d))
+    console.log(lowestCommonAncestor(e, f))
+    console.log(lowestCommonAncestor(d, e))
+
+  </script>
+
+</body>
+
+</html>

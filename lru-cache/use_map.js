@@ -1,50 +1,81 @@
+https://leetcode.com/problems/lru-cache/discuss/46045/JS-implementation-with-very-detailed-explanation-easy-to-understand
+
 /**
- * @param {number} capacity
+ * @constructor
  */
+var ListNode = function (key, val) {
+  this.prev = null;
+  this.next = null;
+  this.val = val;
+  this.key = key;
+}
 var LRUCache = function (capacity) {
-  this.capacity = capacity
-  this.map = new Map()
+  this.head = new ListNode(-1, -1);
+  this.tail = new ListNode(-1, -1);
+  this.head.next = this.tail;
+  this.tail.prev = this.head;
+  this.size = 0;
+  this.capacity = capacity;
+  this.map = new Map();
 };
 
-/** 
- * @param {number} key
- * @return {number}
- */
+/**
+* @param {number} key
+* @returns {number}
+*/
 LRUCache.prototype.get = function (key) {
-  if (this.map.has(key)) {
-    const tempValue = this.map.get(key)
-    this.map.delete(key)
-    this.map.set(key, tempValue)
-    return tempValue
-  }
-  return -1
-};
-
-/** 
- * @param {number} key 
- * @param {number} value
- * @return {void}
- */
-LRUCache.prototype.put = function (key, value) {
-  const keys = Array.from(this.map.keys())
-  if (this.capacity == keys.length) {
-    if (keys.length == 0) {
-      return
-    }
-    if (this.map.has(key)) {
-      this.map.delete(key)
-      this.map.set(key, value)
-    } else {
-      const firstKey = keys[0]
-      this.map.delete(firstKey)
-      this.map.set(key, value)
-    }
+  let node = this.map.get(key);
+  if (node) {
+    this.moveToHead(node);
+    return node.val;
   } else {
-    this.map.set(key, value)
+    return -1;
   }
 };
 
-c = new LRUCache(2)
+/**
+* @param {number} key
+* @param {number} value
+* @returns {void}
+*/
+LRUCache.prototype.set = function (key, value) {
+  let node = this.map.get(key);
+  if (!node) {
+    node = new ListNode(key, value);
+    this.attachToHead(node);
+    this.size++;
+  } else {
+    node.val = value;
+    this.moveToHead(node);
+  }
+  if (this.size > this.capacity) {
+    this.removeLast();
+    this.size--;
+  }
+  this.map.set(key, node);
+};
+
+LRUCache.prototype.attachToHead = function (node) {
+  node.next = this.head.next;
+  node.next.prev = node;
+  this.head.next = node;
+  node.prev = this.head;
+}
+
+LRUCache.prototype.moveToHead = function (node) {
+  node.prev.next = node.next;
+  node.next.prev = node.prev;
+  this.attachToHead(node);
+}
+
+LRUCache.prototype.removeLast = function () {
+  let last = this.tail.prev;
+  last.prev.next = this.tail;
+  this.tail.prev = last.prev;
+  this.map.delete(last.key);
+}
+
+const c = new LRUCache(2)
 c.put("c", 123)
 c.put("a", 456)
 c.put("b", 789)

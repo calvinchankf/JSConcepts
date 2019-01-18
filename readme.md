@@ -30,6 +30,7 @@ How to implement
 1. [Array Reduce](/array/reduce.js)
 1. [Array Filter](/array/filter.js)
 1. [LRU Cache (using Map)](/lru-cache/use_map.js)
+1. [LRU Cache (using Doubly Linked List)](/lru-cache/use_linked_list_hashtable.js)
 
 Common Algorithms of DOM Elements
 ---

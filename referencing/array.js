@@ -36,7 +36,7 @@ console.log(a)
   so when we change the item value of b, that value also be changed
 */
 const b = a
-editBack(a)
+editBack(b)
 console.log(a) // expect [ 1, 2, 3 ]
 console.log(b) // expect [ 1, 2, 3 ]
 

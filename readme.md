@@ -19,6 +19,7 @@ NodeJs
 1. [Child Process](/child-process/)
 1. [Cluster](/node-cluster/)
 1. [Event Emitter](/event-emitter/readme.md)
+1. [Singleton](/singleton/)
 
 Browser
 ---

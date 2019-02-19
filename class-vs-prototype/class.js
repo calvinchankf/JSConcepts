@@ -19,6 +19,7 @@ class Vehicle {
 
 // much more OOP than protytype
 let car = new Vehicle("Toyota", "Corolla", "Black");
+console.log("Vehicle constructor name", car.constructor.name);
 console.log(car);
 // console.log(car.getIntro()); // crash because getIntro() is a class method
 console.log(Vehicle.getIntro());
@@ -53,7 +54,9 @@ class Car extends Vehicle {
     return this.make + " " + this.model + " in child class.";
   }
 }
+
 let car3 = new Car("Honda", "Accord", "Purple");
+console.log("car3 constructor name", car3.constructor.name);
 console.log(car3.getName()); // "Honda Accord in child class."
 
 class Bus extends Vehicle {

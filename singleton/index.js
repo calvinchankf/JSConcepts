@@ -1,0 +1,6 @@
+const God = require('./God')
+const g1 = new God()
+const g2 = new God()
+console.log(g1 == g2)
+console.log(God.getInstance() == g1)
+console.log(God.getInstance() == g2)

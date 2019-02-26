@@ -21,6 +21,7 @@ NodeJs
 1. [Event Emitter](/event-emitter/readme.md)
 1. [Singleton](/singleton/)
 1. [Middleware](/middleware/readme.md)
+1. [let vs var](/let-vs-var/readme.md)
 
 Browser
 ---

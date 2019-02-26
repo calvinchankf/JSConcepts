@@ -20,6 +20,7 @@ NodeJs
 1. [Cluster](/node-cluster/)
 1. [Event Emitter](/event-emitter/readme.md)
 1. [Singleton](/singleton/)
+1. [Middle ware](/middleware/readme.md)
 
 Browser
 ---

@@ -1,4 +1,4 @@
-What is middleware
+What is Middleware
 ===
 
 In short, **middlewares** are functions that you can define your requests can go through. An express server itself is a list of middlewares.

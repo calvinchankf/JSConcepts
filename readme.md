@@ -7,6 +7,7 @@ Browser
 1. [What happens when you click a link on a webpage](/what-happens-when/readme.md)
 1. [How Browsers Render a Website](/browser/render/readme.md)
 1. [What is DOM?](/browser/dom/readme.md)
+1. [Cookies vs LocalStorage vs SessionStorage](/cookies-local-session/readme.md)
 
 JS Knowledge
 ---

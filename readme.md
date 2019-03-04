@@ -2,9 +2,12 @@ FrontEnd Concepts
 ====
 My progress to master FrontEnd interviews. Gonna learn and update the repo until I become adept at it.
 
+Browser
+---
+1. [How Browsers Render a Website](/browser/render/readme.md)
+
 JS Knowledge
 ---
-
 1. [Memory Management](/js-knowledge/memory-profile-on-web/)
 1. [Event Loop](/js-knowledge/event-loop/readme.md)
 1. [Self-invoking/Immediate function](/js-knowledge/self-invoking/)
@@ -24,9 +27,9 @@ JS Knowledge
 1. [let vs var](/js-knowledge/let-vs-var/readme.md)
 1. [Callback vs Promise vs Generator vs Async/wait](/js-knowledge/callback-promise-generator-asyncwait/readme.md)
 
-Browser
+CSS
 ---
-1. [How Browsers Render a Website](/browser/render/readme.md)
+1. [What is Box Model](/css/readme.md)
 
 How to implement
 ---

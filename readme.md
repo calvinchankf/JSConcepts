@@ -6,6 +6,7 @@ Browser
 ---
 1. [What happens when you click a link on a webpage](/what-happens-when/readme.md)
 1. [How Browsers Render a Website](/browser/render/readme.md)
+1. [What is DOM?](/browser/dom/readme.md)
 
 JS Knowledge
 ---
@@ -30,7 +31,8 @@ JS Knowledge
 
 CSS
 ---
-1. [What is Box Model](/css/readme.md)
+1. [What is Box Model](/css/box-model/readme.md)
+1. [What is Flex Box](/css/flex-box/readme.md)
 
 How to implement
 ---

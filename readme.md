@@ -10,6 +10,7 @@ Browser
 1. [Cookies & Sessions](/browser/cookies/cookies-session.md)
 1. [Cookies vs LocalStorage vs SessionStorage](/browser/cookies/cookies-local-session.md)
 1. [What is OAuth?](/browser/oauth/readme.md)
+1. [What is HTML Event Delegation](/browser/event-delegation/readme.md)
 
 JS Knowledge
 ---

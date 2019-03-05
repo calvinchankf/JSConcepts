@@ -4,12 +4,12 @@
 <body>
 
   <div id="a">a
-    <div id="b">-b
-      <div id="c">--c
-        <div id="d">---d</div>
+    <div id="b">b
+      <div id="c">c
+        <div id="d">d</div>
       </div>
-      <div id="e">--e</div>
-      <div id="f">--f</div>
+      <div id="e">e</div>
+      <div id="f">f</div>
     </div>
   </div>
 
@@ -19,7 +19,7 @@
     */
     function dfs(node, prefix) {
       if (node.nodeName == "DIV") {
-        console.log(prefix, node.id)
+        console.log(prefix, node.innerText)
       }
       for (let i = 0; i < node.children.length; i++) {
         const child = node.children[i]

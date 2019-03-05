@@ -33,6 +33,7 @@ JS Knowledge
 1. [Middleware](/js-knowledge/middleware/readme.md)
 1. [let vs var](/js-knowledge/let-vs-var/readme.md)
 1. [Callback vs Promise vs Generator vs Async/wait](/js-knowledge/callback-promise-generator-asyncwait/readme.md)
+1. [Currying](/js-knowledge/currying/readme.md/)
 
 CSS
 ---

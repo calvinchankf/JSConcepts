@@ -1,6 +1,6 @@
 /*
 Hoisting in javascript is behavior in which
-all the declarations are automatically moved on top of the current scope,
+all the declarations are automatically moved on top of the current scope before execution,
 so we can use a variable or a function before its declaration
 
 e.g. we can call a() and b() before a() and b() are declared

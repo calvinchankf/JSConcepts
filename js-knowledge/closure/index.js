@@ -23,6 +23,15 @@ var add = (function () {
   }
 })();
 
+/*
+  it prints a function
+  ƒ (val) {
+    counter += val;
+    return counter
+  }
+*/
+console.log(add);
+
 // print 1, 3, 6
 console.log(add(1));
 console.log(add(2));

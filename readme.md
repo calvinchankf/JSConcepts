@@ -51,3 +51,4 @@ How to implement
 Common Algorithms of DOM Elements
 ---
 1. [Lowest Common Ancestor](/algo/common-ancestor.html)
+1. [Print DOM hierarchy](/algo/print-dom.html)

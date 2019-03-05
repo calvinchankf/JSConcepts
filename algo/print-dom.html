@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+  <div id="a">a
+    <div id="b">-b
+      <div id="c">--c
+        <div id="d">---d</div>
+      </div>
+      <div id="e">--e</div>
+      <div id="f">--f</div>
+    </div>
+  </div>
+
+  <script>
+    /*
+      print the DOM hierarchy of the web page
+    */
+    function dfs(node, prefix) {
+      if (node.nodeName == "DIV") {
+        console.log(prefix, node.id)
+      }
+      for (let i = 0; i < node.children.length; i++) {
+        const child = node.children[i]
+        dfs(child, prefix + "-")
+      }
+    }
+
+    console.log("start to print from document.body")
+    dfs(document.body, "")
+
+    console.log("start to print from node:a")
+    dfs(document.getElementById("a"), "")
+
+  </script>
+
+</body>
+
+</html>

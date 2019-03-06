@@ -48,7 +48,8 @@ How to implement
 1. [LRU Cache (using Map)](/lru-cache/use_map.js)
 1. [LRU Cache (using Doubly Linked List and Hash Table)](/lru-cache/use_linked_list_hashtable.js)
 1. [LFU Cache (using Doubly Linked List and Hash Table)](/lfu-cache/index.js)
-
+1. [PubSub](/implementation/pubsub/index.js)
+1. [PubSub vs Observer](/implementation/pubsub-vs-observer/readme.md)
 
 Common Algorithms of DOM Elements
 ---

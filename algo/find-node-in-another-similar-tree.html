@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+  <!-- abcdef -->
+  <div id="a">a
+    <div id="b">-b
+      <div id="c">--c
+        <div id="d">---d</div>
+      </div>
+      <div id="e">--e</div>
+      <div id="f">--f</div>
+    </div>
+  </div>
+
+  <!-- nopqrs -->
+  <div id="n">n
+    <div id="o">-o
+      <div id="p">--p
+        <div id="q">---q</div>
+      </div>
+      <div id="r">--r</div>
+      <div id="s">--s</div>
+    </div>
+  </div>
+
+  <script>
+    /*
+      fb interview question
+      - find out the corresponding node in another tree which has the same hierarchy
+
+
+    */
+    let targetPath = []
+    function findA(node, target, path) {
+      if (node.id == target) {
+        targetPath = path
+      }
+      for (let i = 0; i < node.children.length; i++) {
+        const child = node.children[i]
+        findA(child, target, [...path, i])
+      }
+    }
+
+    function findB(root, path) {
+      let cur = root
+      while (path.length > 0) {
+        head = path.shift()
+        cur = cur.children[head]
+      }
+      return cur
+    }
+
+    console.log("start to find target from tree A document.body")
+    // findA(document.body, "e", [])
+    findA(document.getElementById("a"), "e", [])
+
+    console.log("targetPath", targetPath);
+
+    console.log("find the corresponding node in tree B")
+    // const ans = findB(document.body, targetPath)
+    // console.log(ans.id)
+    const ans = findB(document.getElementById("n"), targetPath)
+    console.log(ans.id)
+
+  </script>
+
+</body>
+
+</html>

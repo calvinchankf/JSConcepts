@@ -4,25 +4,27 @@ class Heap {
   }
 
   heapify(values) {
+    // O(nlogn) version
     for (let i = 0; i < values.length; i++) {
       this.heapPush(values[i])
+    }
+    /*
+      O(n) version
+      bottom-up
+      shift down from bottom to up such that we minimize the number of shift operations
+      n/2 + n/8 + n/16.... = O(n)
+    */
+    this.arr = values
+    const n = values.length
+    for (let i = Math.floor(n / 2); i >= 0; i--) {
+      this._shitUp(i)
     }
   }
 
   heapPush(value) {
     this.arr.push(value)
     let curIdx = this.arr.length - 1
-    while (true) {
-      const parentIdx = Math.floor((curIdx - 1) / 2)
-      if (parentIdx >= 0 && this.arr[parentIdx] > this.arr[curIdx]) {
-        const temp = this.arr[curIdx]
-        this.arr[curIdx] = this.arr[parentIdx]
-        this.arr[parentIdx] = temp
-        curIdx = parentIdx
-      } else {
-        break
-      }
-    }
+    this._shiftDown(curIdx)
   }
 
   heapPop() {
@@ -32,7 +34,13 @@ class Heap {
       return res
     }
     this.arr[0] = last
-    let cur = 0
+    this._shitUp(0)
+    return res
+  }
+
+  // used by heapify, pop
+  _shitUp(fromIdx) {
+    let cur = fromIdx
     while (cur < this.arr.length) {
       const left = cur * 2 + 1
       const right = cur * 2 + 2
@@ -62,7 +70,22 @@ class Heap {
         break
       }
     }
-    return res
+  }
+
+  // used by push
+  _shiftDown(fromIdx) {
+    let curIdx = fromIdx
+    while (curIdx > 0) {
+      const parentIdx = Math.floor((curIdx - 1) / 2)
+      if (this.arr[parentIdx] > this.arr[curIdx]) {
+        const temp = this.arr[curIdx]
+        this.arr[curIdx] = this.arr[parentIdx]
+        this.arr[parentIdx] = temp
+        curIdx = parentIdx
+      } else {
+        break
+      }
+    }
   }
 }
 
@@ -94,30 +117,35 @@ while (h.arr.length > 0) {
   console.log(h.heapPop())
 }
 
-console.log("-----")
+console.log("-------------------------")
 
 // unique values
 h = new Heap()
 h.heapify([6, 4, 2, 8, 9, 5, 7, 3])
-console.log(h.arr)
+let res = []
 while (h.arr.length > 0) {
-  console.log(h.heapPop())
+  res.push(h.heapPop())
 }
+console.log(res)
 
 // duplicate values
 h = new Heap()
 h.heapify([6, 4, 2, 8, 9, 5, 7, 4])
-console.log(h.arr)
+res = []
 while (h.arr.length > 0) {
-  console.log(h.heapPop())
+  res.push(h.heapPop())
 }
+console.log(res)
+
+console.log("-------------------------")
 
 // Heap Sort
 function heapsort(values) {
   const res = []
   const h = new Heap()
   h.heapify(values)
-  for (let i = 0; i < values.length; i++) {
+  const n = values.length
+  for (let i = 0; i < n; i++) {
     res.push(h.heapPop())
   }
   return res

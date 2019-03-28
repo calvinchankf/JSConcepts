@@ -50,6 +50,7 @@ How to implement
 1. [LFU Cache (using Doubly Linked List and Hash Table)](/lfu-cache/index.js)
 1. [PubSub](/implementation/pubsub/index.js)
 1. [PubSub vs Observer](/implementation/pubsub-vs-observer/readme.md)
+1. [Heap](/implementation/heap/index.js)
 
 Common Algorithms of DOM Elements
 ---

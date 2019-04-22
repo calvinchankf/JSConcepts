@@ -71,7 +71,7 @@ class MinQueue {
 
   dequeue() {
     if (this.isEmpty()) {
-      return false
+      return null
     }
     // remove head
     let first = this.head.next
@@ -80,7 +80,7 @@ class MinQueue {
     // remove head from the linked list
     const idx = this._lowerBinarySearch(this.nums, first.val)
     this.nums.splice(idx, 1)
-    return true
+    return first.val
   }
 
   peekHead() {

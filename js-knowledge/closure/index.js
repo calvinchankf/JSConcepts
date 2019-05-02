@@ -14,9 +14,14 @@ detail:
 4. due to 3) we can create a singleton using closure
 */
 
+const x = 999
+
 // e.g.1
-var add = (function () {
-  var counter = 0;
+const add = (function () {
+  // access variables outside the closure
+  console.log('x', x)
+  // declare variables that only be accessed within the closure
+  let counter = 0;
   return function (val) {
     counter += val;
     return counter
@@ -44,9 +49,10 @@ console.log(add.counter); // undefined
 for (var i = 1; i <= 5; i++) {
   setTimeout(function () {
     console.log("i: " + i);
-  }, i * 100);
+  }, i);
 }
 // it prints 66666
+console.log("-----")
 
 // but when we change using closure,
 for (var i = 1; i <= 5; i++) {

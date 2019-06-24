@@ -58,3 +58,7 @@ Common Algorithms of DOM Elements
 1. [Lowest Common Ancestor](/algo/common-ancestor.html)
 1. [Print DOM Hierarchy](/algo/print-dom.html)
 1. [Find DOM Node in Another Tree with similar Hierarchy](/algo/find-node-in-another-similar-tree.html)
+
+Optimization
+---
+- [wip](/optimization/readme.md)

@@ -5,6 +5,14 @@ Node.js core API is based on asynchronous event-driven architecture in which cer
 - When the EventEmitter object emits an event, all of the functions attached to that specific event are called synchronously. Any values returned by the called listeners are ignored and will be discarded.
 - unlike callbacks/promise/aync&await, events are synchronous
 
+![](./event.jpg)
+
+use cases:
+- when there is a request coming in to a node.js server, your event listeners will get an event from the HTTP module of node.js, and you receive the request body from the callbacks
+- when there is a click on a webpage, your event listiner will get an event of what you have just clicked
+
+ref:
+- https://www.youtube.com/watch?v=l20MBBFZAmA
 
 Example: Logging
 ----

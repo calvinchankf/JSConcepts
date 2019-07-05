@@ -28,7 +28,7 @@ JS Knowledge
 1. [AMD, CommonJS, ES2015+](/js-knowledge/amd-vs-common-es/readme.md)
 1. [Child Process](/js-knowledge/child-process/)
 1. [Cluster](/js-knowledge/node-cluster/)
-1. [Event Emitter](/js-knowledge/event-emitter/readme.md)
+1. [Event Emitter/Event Driven Architecture](/js-knowledge/event-emitter/readme.md)
 1. [Singleton](/js-knowledge/singleton/)
 1. [Middleware](/js-knowledge/middleware/readme.md)
 1. [let vs var](/js-knowledge/let-vs-var/readme.md)

@@ -61,5 +61,5 @@ Common Algorithms of DOM Elements
 
 Optimization
 ---
-- [FrontEnd](/optimization/readme.md)
-- [BackEnd](/optimization/readme.md)
+- [FrontEnd](/optimization/frontend.md)
+- [BackEnd](/optimization/backend.md)

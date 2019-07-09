@@ -1,6 +1,7 @@
 What is Currying?
 ===
-gi
+- Currying helps you to avoid passing the same variable again and again.
+- It helps to create a higher order function
 
 Practical Example
 ---

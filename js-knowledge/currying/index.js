@@ -28,4 +28,20 @@ var saySomething = function (a) {
     }
   }
 }
+console.log(saySomething("Hi"))
+/*
+  the above function:
+  function (b) {
+    return function (c) {
+      return "Say " + 'Hi' + " to " + b + " from " + c
+    }
+  }
+*/
+console.log(saySomething("Hi")("Bob"))
+/*
+  the above function:
+  return function (c) {
+    return "Say " + "Hi" + " to " + "Bob" + " from " + c
+  }
+*/
 console.log(saySomething("Hi")("Bob")("Hong Kong"))

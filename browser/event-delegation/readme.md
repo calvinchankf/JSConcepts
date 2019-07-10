@@ -32,7 +32,7 @@ So how to add event listener(s) to the buttons?
     <tr><td>List item6</td><td><input type="button" value="edit" data-index="6" /></td></tr>
     <tr><td>List item7</td><td><input type="button" value="edit" data-index="7" /></td></tr>
 </table>
-  <script type='text/javascript' src='//code.jquery.com/jquery-1.9.1.js'></script>
+<script type='text/javascript' src='//code.jquery.com/jquery-1.9.1.js'></script>
 
 <script>
  $("#test [type=button]").on("click",function(){

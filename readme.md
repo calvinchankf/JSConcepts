@@ -39,6 +39,7 @@ CSS
 ---
 1. [What is Box Model](/css/box-model/readme.md)
 1. [What is Flex Box](/css/flex-box/readme.md)
+1. [CSS Priority](/css/priority/readme.md)
 
 How to implement
 ---
@@ -52,6 +53,7 @@ How to implement
 1. [PubSub vs Observer](/implementation/pubsub-vs-observer/readme.md)
 1. [Heap](/implementation/heap/index.js)
 1. [Min Queue](/implementation/min-queue/)
+1. [Debounce](/implementation/debounce/index.js)
 
 Common Algorithms of DOM Elements
 ---

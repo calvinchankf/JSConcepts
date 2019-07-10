@@ -23,80 +23,23 @@ And here is how the click event bubbling up
 So how to add event listener(s) to the buttons?
 ---
 ```html
-<div id="parent">
-  <button class="box">A</button>
-  <button class="box">B</button>
-  <button class="box">C</button>
-  <button class="box">D</button>
-  <button class="box">E</button>
-  <button class="box">F</button>
-  <button class="box">G</button>
-  <button class="box">H</button>
-  <button class="box">I</button>
-</div>
+<table id="test">
+    <tr><td>List item1</td><td><input type="button" value="edit" data-index="1" /></td></tr>
+    <tr><td>List item2</td><td><input type="button" value="edit" data-index="2" /></td></tr>
+    <tr><td>List item3</td><td><input type="button" value="edit" data-index="3" /></td></tr>
+    <tr><td>List item4</td><td><input type="button" value="edit" data-index="4" /></td></tr>
+    <tr><td>List item5</td><td><input type="button" value="edit" data-index="5" /></td></tr>
+    <tr><td>List item6</td><td><input type="button" value="edit" data-index="6" /></td></tr>
+    <tr><td>List item7</td><td><input type="button" value="edit" data-index="7" /></td></tr>
+</table>
+  <script type='text/javascript' src='//code.jquery.com/jquery-1.9.1.js'></script>
+
+<script>
+ $("#test [type=button]").on("click",function(){
+    alert("hi, edit is fired on row "+$(this).data("index"));
+ });
+</script>
 ```
-
-Best Practice
----
-```js
-// Get the element, add a click listener...
-document.getElementById("parent").addEventListener("click",       function(e) {
-  // e.target is the clicked element!
-  // If it was a list item
-  if(e.target && e.target.nodeName == "button") {
-    console.log("List item clicked=> ", e.target.textContent)
-  }
-});
-```
-
-Problems when we add event listener to each button
---
-
-For example when we add event listener to each button
-```js
-var allButtonsOnPage = document.querySelectorAll('button');
-for (var i = 0; i < allButtonsOnPage.length; i++) {
-  allButtonsOnPage[i].addEventListener('click', function() {
-    console.log(i);
-  });
-}
-```
-
-It just prints 9 whenever we click any button, why?
-It is because by the time the button is clicked, the value of i in the “for” loop scope is already at 9, even though at the point of doing addEventListener the value of i was correctly 0, 1, 2, etc
-
-To fix this, you can...
-```js
-Solution 1 (classic with a closure):
-for (let j = 0; j < allButtonsOnPage.length; j++) {
-  (function(j) {
-     allButtonsOnPage[j].addEventListener('click',function() {
-        console.log(j); // j is the parameter
-     });
-  })(j)
-}
-```
-
-You can also
-```js
-allButtonsOnPage.forEach(function(button, index) {
-  button.addEventListener('click', function() {
-    console.log(index);
-  });
-});
-```
-Use forEach(), it works because within each iteration of forEach(), a new scope is created, and the value of index is fixed to the correct value in that scope.
-
-Or
-```js
-for (let j = 0; j < allButtonsOnPage.length; j++) {
-  let button = allButtonsOnPage[j];
-  button.addEventListener('click', function() {
-    console.log(j);
-  });
-}
-```
-It works too because let is limited to the closure scope, but it might not work for some browsers.
 
 Reference
 ---

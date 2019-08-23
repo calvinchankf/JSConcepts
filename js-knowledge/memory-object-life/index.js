@@ -37,3 +37,19 @@ console.log(4);
 console.log(o);
 console.log(oa);
 console.log(o2);
+
+console.log(5);
+const arr = [1, 2, 3];
+function f(list) {
+  list[0] = 100
+}
+f(arr)
+console.log(arr)
+
+console.log(6);
+const b = true
+function changeb(bl) {
+  bl = false
+}
+changeb(b)
+console.log(b)

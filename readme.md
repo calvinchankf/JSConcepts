@@ -1,9 +1,9 @@
-FrontEnd Concepts
-====
+# FrontEnd Concepts
+
 My progress to master FrontEnd interviews. Gonna learn and update the repo until I become adept at it.
 
-Browser
----
+## Browser
+
 1. [What happens when you click a link on a webpage](/browser/what-happens-when/readme.md)
 1. [How Browsers Render a Website](/browser/render/readme.md)
 1. [What is DOM?](/browser/dom/readme.md)
@@ -13,8 +13,8 @@ Browser
 1. [What is HTML Event Delegation](/browser/event-delegation/readme.md)
 1. [Common DOM Properties and Methods](/browser/dom-properties-methods/readme.md)
 
-JS Knowledge
----
+## JS Knowledge
+
 1. [Memory Management](/js-knowledge/memory-profile-on-web/)
 1. [Event Loop](/js-knowledge/event-loop/readme.md)
 1. [Self-invoking/Immediate function](/js-knowledge/self-invoking/)
@@ -35,33 +35,38 @@ JS Knowledge
 1. [Callback vs Promise vs Generator vs Async/wait](/js-knowledge/callback-promise-generator-asyncwait/readme.md)
 1. [Currying](/js-knowledge/currying/readme.md/)
 
-CSS
----
+## CSS
+
 1. [What is Box Model](/css/box-model/readme.md)
 1. [What is Flex Box](/css/flex-box/readme.md)
 1. [CSS Priority](/css/priority/readme.md)
 
-How to implement
----
+## How to implement
+
 1. [Array Map](/implementation/array/map.js)
 1. [Array Reduce](/implementation/array/reduce.js)
 1. [Array Filter](/implementation/array/filter.js)
-1. [LRU Cache (using Map)](/lru-cache/use_map.js)
-1. [LRU Cache (using Doubly Linked List and Hash Table)](/lru-cache/use_linked_list_hashtable.js)
-1. [LFU Cache (using Doubly Linked List and Hash Table)](/lfu-cache/index.js)
+1. LRU
+    - [using Map](/lru-cache/use_map.js)
+    - [using Doubly Linked List and Hash Table](/lru-cache/use_linked_list_hashtable.js)
+1. [LFU](/lfu-cache/index.js)
 1. [PubSub](/implementation/pubsub/index.js)
 1. [PubSub vs Observer](/implementation/pubsub-vs-observer/readme.md)
 1. [Heap](/implementation/heap/index.js)
 1. [Min Queue](/implementation/min-queue/)
-1. [Debounce](/implementation/debounce/index.js)
+1. [Sleep](/implementation/sleep/index.js)
+1. Debouncing
+    - [basic](/implementation/debounce/simple.js)
+    - [with MaxWait](/implementation/debounce/maxWait.js)
+    - [with Cancel](/implementation/debounce/cancel.js)
 
-Common Algorithms of DOM Elements
----
+## Common Algorithms of DOM Elements
+
 1. [Lowest Common Ancestor](/algo/common-ancestor.html)
 1. [Print DOM Hierarchy](/algo/print-dom.html)
 1. [Find DOM Node in Another Tree with similar Hierarchy](/algo/find-node-in-another-similar-tree.html)
 
-Optimization
----
-- [FrontEnd](/optimization/frontend.md)
-- [BackEnd](/optimization/backend.md)
+## Optimization
+
+-   [FrontEnd](/optimization/frontend.md)
+-   [BackEnd](/optimization/backend.md)

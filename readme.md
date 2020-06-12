@@ -59,6 +59,8 @@ My progress to master FrontEnd interviews. Gonna learn and update the repo until
     - [basic](/implementation/debounce/simple.js)
     - [with MaxWait](/implementation/debounce/maxWait.js)
     - [with Cancel](/implementation/debounce/cancel.js)
+1. Throttling
+    - [basic: 1 time per X ms](/implementation/throttling/simple.js)
 
 ## Common Algorithms of DOM Elements
 

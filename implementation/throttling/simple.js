@@ -1,5 +1,3 @@
-const sleep = require("../sleep");
-
 // simple version
 // at most execute once for every X milliseconds
 const throttle = (fn, ms) => {
@@ -18,6 +16,7 @@ const throttle = (fn, ms) => {
 	};
 };
 
+// 2 times per 1 ms
 const sayHello = throttle((key, timestamp) => {
 	console.log("hello", key, timestamp);
 }, 5);

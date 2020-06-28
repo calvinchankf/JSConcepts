@@ -17,6 +17,9 @@ My progress to master FrontEnd interviews. Gonna learn and update the repo until
 
 1. [Memory Management](/js-knowledge/memory-profile-on-web/)
 1. [Event Loop](/js-knowledge/event-loop/readme.md)
+1. [Event Driven Architecture](/js-knowledge/event-emitter/readme.md)
+1. [Event Emitter Usage](/js-knowledge/event-emitter/basic.js)
+1. [Implement Event Emitter](/js-knowledge/event-emitter/implementation.js)
 1. [Self-invoking/Immediate function](/js-knowledge/self-invoking/)
 1. [Closure](/js-knowledge/closure/)
 1. [What is 'this'](/js-knowledge/this/)
@@ -28,7 +31,6 @@ My progress to master FrontEnd interviews. Gonna learn and update the repo until
 1. [AMD, CommonJS, ES2015+](/js-knowledge/amd-vs-common-es/readme.md)
 1. [Child Process](/js-knowledge/child-process/)
 1. [Cluster](/js-knowledge/node-cluster/)
-1. [Event Emitter/Event Driven Architecture](/js-knowledge/event-emitter/readme.md)
 1. [Singleton](/js-knowledge/singleton/)
 1. [Middleware](/js-knowledge/middleware/readme.md)
 1. [let vs var](/js-knowledge/let-vs-var/readme.md)

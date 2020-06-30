@@ -72,6 +72,7 @@ My progress to master FrontEnd interviews. Gonna learn and update the repo until
 1. [Lowest Common Ancestor](/algo/common-ancestor.html)
 1. [Print DOM Hierarchy](/algo/print-dom.html)
 1. [Find DOM Node in Another Tree with similar Hierarchy](/algo/find-node-in-another-similar-tree.html)
+1. [DOM Store](/algo/dom-store.html)
 
 ## Optimization
 

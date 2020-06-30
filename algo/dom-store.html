@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<div id="a">
+			a
+			<div id="b">
+				-b
+				<div id="c">
+					--c
+					<div id="d">---d</div>
+				</div>
+				<div id="e">--e</div>
+				<div id="f">--f</div>
+			</div>
+		</div>
+
+		<script>
+			/*
+                Write a class called DOMStore that stores a Node and a value (reimplement Map).
+                DOMStore contains the following functions:
+
+                has(node) // returns boolean
+                get(node) // returns node or undefined
+                set(node, value) // "upsert", update or insert
+			*/
+
+			/*
+                1st approach: use WeakMap (instead of Map), because
+                - Map class can use reference as keys
+                - as soon as the element is removed from DOM tree, the object will be garbage-collected to free memory
+			*/
+			class DOMStore {
+				constructor() {
+					this.map = new WeakMap();
+				}
+
+				set(node, value) {
+					return this.map.set(node, vaue);
+				}
+
+				get(node) {
+					return this.map.get(node);
+				}
+
+				has(node) {
+					return this.map.has(node);
+				}
+			}
+
+			/*
+                2nd approach: closure + hashtable
+                - mutate the node
+                - a closure to generate keys from −2^53 < i < 2^53 (or 0 to 2^53 in this case)
+                - and a hashtable to map the keys to their associated DOM element
+
+                But if we do this, we must tell the interviewer that there are at least 2 tradeoffs
+                - DOM elements will not be garbage-collected after removal from the page
+                - we could use up all 2^54 keys <- altho I think that if we use up, your website must be too big, you are updating your DOM too frequently or your user has been staying on the page for a very loooooooog time
+			*/
+			const generateKey = (function () {
+				// declare variables that only be accessed within the closure
+				let counter = -1;
+				return function () {
+					counter += 1;
+					return counter;
+				};
+			})();
+
+			class DOMStore {
+				constructor() {
+					this.map = {};
+				}
+
+				set(node, value) {
+					const key = generateKey();
+					node["key"] = key;
+					this.map[key] = vaue;
+				}
+
+				get(node) {
+					const key = node["key"];
+					return this.map[key];
+				}
+
+				has(node) {
+					return this.map[node] !== undefined;
+				}
+			}
+			/*
+                To dig deep, there is no easy way to do this. If the interviewer asks you this, s/he might expect you to tell more about
+
+                the implementation of hashtable
+                hash function
+                open hashing vs close hashing
+                In node v8, es6 Map, Set, WeakMap, WeakSet use hash code https://v8.dev/blog/hash-code
+                In general, checkout deterministic hash tables https://wiki.mozilla.org/User:Jorend/Deterministic_hash_tables
+            */
+		</script>
+	</body>
+</html>

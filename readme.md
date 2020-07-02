@@ -58,6 +58,7 @@ My progress to master FrontEnd interviews. Gonna learn and update the repo until
 1. [Heap](/implementation/heap/index.js)
 1. [Min Queue](/implementation/min-queue/)
 1. [Sleep](/implementation/sleep/index.js)
+1. [Promise](/implementation/promise/simple.js)
 1. Debouncing
     - [basic](/implementation/debounce/simple.js)
     - [with MaxWait](/implementation/debounce/maxWait.js)

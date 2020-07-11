@@ -74,7 +74,7 @@ $reload.addEventListener("click", () => {
 	const b = h(
 		"div",
 		{ class: "list" },
-		h("div", {}, "Virtual Dom Demo"),
+		h("div", {}, "😉😉😉"),
 		h("div", {}, `random => ${String(Math.random() * 10)}`),
 		h(
 			"img",

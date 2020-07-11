@@ -29,7 +29,7 @@ function isChanged(node1, node2) {
 	);
 }
 
-// aka 'patch', update the real dom
+// aka 'patch', to update the real dom
 function updateElement($parent, oldNode, newNode, index = 0) {
 	if (!oldNode) {
 		$parent.appendChild(render(newNode));

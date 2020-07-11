@@ -56,7 +56,7 @@ function updateElement($parent, oldNode, newNode, index = 0) {
 let current = h(
 	"div",
 	{ class: "list" },
-	h("div", {}, "Virtual Dom Demo"),
+	h("div", {}, "😉😉😉"),
 	h("div", {}, "random"),
 	h(
 		"img",

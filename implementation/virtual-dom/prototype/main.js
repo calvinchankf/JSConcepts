@@ -1,6 +1,6 @@
 // this is a handy function for creating a node
-const h = (type, props, ...children) => {
-	return { type, props, children };
+const h = (tag, props, ...children) => {
+	return { tag, props, children };
 };
 
 // render a Dom Element from a Virtual Dom Element, recursively
@@ -8,7 +8,7 @@ const render = (node) => {
 	if (typeof node === "string") {
 		return document.createTextNode(node);
 	}
-	const $el = document.createElement(node.type);
+	const $el = document.createElement(node.tag);
 	for (const [k, v] of Object.entries(node.props)) {
 		$el.setAttribute(k, v);
 	}
@@ -19,25 +19,31 @@ const render = (node) => {
 	return $el;
 };
 
-// naive diff
-function isChanged(node1, node2) {
+// naive diff for tag change OR text change
+function isTagChanged(node1, node2) {
 	return (
 		typeof node1 !== typeof node2 ||
 		(typeof node1 === "string" && node1 !== node2) ||
-		(typeof node2 === "string" && node1 !== node2) ||
-		node1.type !== node2.type
+		node1.tag !== node2.tag
 	);
 }
 
-// aka 'patch', to update the real dom
+/*
+    There are 2 ways to diff+update the real DOM tree
+    1.  - diff 2 trees to get the pathes
+        - applies the patches to the real DOM tree
+    2. diff 2 trees and apply the change directly
+
+    For simplicity, here we use the (2)
+*/
 function updateElement($parent, oldNode, newNode, index = 0) {
 	if (!oldNode) {
 		$parent.appendChild(render(newNode));
 	} else if (!newNode) {
 		$parent.removeChild($parent.childNodes[index]);
-	} else if (isChanged(newNode, oldNode)) {
+	} else if (isTagChanged(newNode, oldNode)) {
 		$parent.replaceChild(render(newNode), $parent.childNodes[index]);
-	} else if (newNode.type) {
+	} else if (newNode.tag) {
 		const oldLength = oldNode.children.length;
 		const newLength = newNode.children.length;
 		for (let i = 0; i < Math.max(oldLength, newLength); i++) {

@@ -67,7 +67,8 @@ My progress to master FrontEnd interviews. Gonna learn and update the repo until
 1. Throttling
     - [basic: 1 per X ms](/implementation/throttling/simple.js)
     - [advanced: X per Y ms](/implementation/throttling/advanced.js)
-1. [Clear All Timeouts](/implementation/clearAllTimeouts)
+1. [Clear All Timeouts](/implementation/clearAllTimeouts/index.js)
+1. [Virtual Dom](/implementation/prototype/main.html)
 
 ## Common Algorithms of DOM Elements
 

@@ -1,3 +1,15 @@
+/*
+    references:
+    - https://github.com/dongyuanxin/pure-virtual-dom
+    - https://github.com/heiskr/prezzy-vdom-example
+    - https://dev.to/ycmjason/building-a-simple-virtual-dom-from-scratch-3d05#background-what-is-virtual-dom
+    - https://github.com/livoras/simple-virtual-dom/
+    - https://github.com/livoras/blog/issues/13
+
+    This html&js lives on my site here:
+    http://calvinchankf.com/JSConcepts/implementation/virtual-dom/prototype/main.html
+*/
+
 // this is a handy function for creating a node
 const h = (tag, props = {}, children = []) => {
 	return { tag, props, children };

@@ -1,6 +1,6 @@
 # FrontEnd Concepts
 
-My progress to master FrontEnd interviews. Gonna learn and update the repo until I become adept at it.
+My progress to master FrontEnd interviews. Gonna learn and update the repo until I am good at it.
 
 ## Browser
 

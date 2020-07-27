@@ -24,6 +24,26 @@ console.log(car);
 // console.log(car.getIntro()); // crash because getIntro() is a class method
 console.log(Vehicle.getIntro());
 
+// subclass
+class Bus extends Vehicle {
+	constructor(make, model, color, routeNo) {
+		super(make, model, color);
+		this.routeNo = routeNo;
+	}
+	// override
+	getName() {
+		return `Bus ${this.routeNo} is ${this.make} ${this.model}`;
+	}
+}
+
+let bus = new Bus("Honda", "Accord", "Purple", "A21");
+console.log("bus constructor name", bus.constructor.name);
+console.log(bus.getName()); // "Honda Accord in child class."
+
+/*
+    -------------------------------------
+*/
+
 // get/setter
 class Person {
 	constructor(name) {
@@ -46,24 +66,3 @@ class Person {
 let calvin = new Person("calvin");
 calvin.name = "Calvin Chan";
 console.log(calvin.name);
-
-// subclass
-class Car extends Vehicle {
-	// override
-	getName() {
-		return this.make + " " + this.model + " in child class.";
-	}
-}
-
-let car3 = new Car("Honda", "Accord", "Purple");
-console.log("car3 constructor name", car3.constructor.name);
-console.log(car3.getName()); // "Honda Accord in child class."
-
-class Bus extends Vehicle {
-	// 'super' the method
-	getName() {
-		return super.getName() + " <- super !!!";
-	}
-}
-let car4 = new Bus("Honda", "Accord", "Purple");
-console.log(car4.getName()); // Honda Accord <- super !!!

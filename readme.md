@@ -10,7 +10,7 @@ My progress to master FrontEnd interviews. Gonna learn and update the repo until
 1. [Cookies & Sessions](/browser/cookies/cookies-session.md)
 1. [Cookies vs LocalStorage vs SessionStorage](/browser/cookies/cookies-local-session.md)
 1. [What is OAuth?](/browser/oauth/readme.md)
-1. [What is HTML Event Delegation](/browser/event-delegation/readme.md)
+1. [What is HTML Event Capturing vs Event Bubbling (Delegation)](/browser/event-delegation/readme.md)
 1. [Common DOM Properties and Methods](/browser/dom-properties-methods/readme.md)
 
 ## JS Knowledge

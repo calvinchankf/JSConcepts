@@ -32,6 +32,7 @@ class Bus extends Vehicle {
 	}
 	// override
 	getName() {
+		// super.getName() <- to super the instance method
 		return `Bus ${this.routeNo} is ${this.make} ${this.model}`;
 	}
 }

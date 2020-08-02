@@ -50,6 +50,7 @@ My progress to master FrontEnd interviews. Gonna learn and update the repo until
 1. [Array Reduce](/implementation/array/reduce.js)
 1. [Array Filter](/implementation/array/filter.js)
 1. [Array Flatten](/implementation/array/flatten.js)
+1. [Array ForEach](/implementation/array/forEach.js)
 1. LRU
     - [using Map](/lru-cache/use_map.js)
     - [using Doubly Linked List and Hash Table](/lru-cache/use_linked_list_hashtable.js)

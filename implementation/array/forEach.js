@@ -3,23 +3,18 @@
   Implementation the Array Map
   here is my least implementation to extend the Array class using protoype
 */
-if (!Array.prototype.myMap) {
-	Array.prototype.myMap = function (callback) {
+if (!Array.prototype.myForEach) {
+	Array.prototype.myForEach = function (callback) {
 		if (typeof callback !== "function") {
 			throw new Error(callback + " is not a function");
 		}
-		const result = [];
 		for (let i = 0; i < this.length; i++) {
-			const temp = callback(this[i], i);
-			result.push(temp);
+			callback(this[i], i);
 		}
-		return result;
 	};
 }
 
 const a = [1, 2, 3];
-const result = a.myMap((item, idx) => {
-	return item * 2;
+a.myForEach((item, idx) => {
+	console.log(item, idx);
 });
-
-console.log(result);

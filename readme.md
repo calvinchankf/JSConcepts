@@ -33,7 +33,7 @@ My progress to master FrontEnd interviews. Gonna learn and update the repo until
 1. [Cluster](/js-knowledge/node-cluster/)
 1. [Singleton](/js-knowledge/singleton/)
 1. [Middleware](/js-knowledge/middleware/readme.md)
-1. [let vs var](/js-knowledge/let-vs-var/readme.md)
+1. [const, let, var](/js-knowledge/const-let-var/readme.md)
 1. [Callback vs Promise vs Generator vs Async/wait](/js-knowledge/callback-promise-generator-asyncwait/readme.md)
 1. [Currying](/js-knowledge/currying/readme.md/)
 1. [Mixins](/js-knowledge/mixins/readme.md/)

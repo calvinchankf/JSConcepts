@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			#yo {
+				font-size: 50px;
+			}
+			#root {
+				background-color: lightblue;
+				width: 500px;
+				height: 500px;
+				overflow: scroll;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="yo">yo</div>
+		<div id="root"></div>
+
+		<script>
+			const $root = document.getElementById("root");
+			for (let i = 0; i < 1000; i++) {
+				const $div = document.createElement("div");
+				$div.textContent = `node ${i}`;
+				$root.appendChild($div);
+			}
+
+			$root.addEventListener("scroll", (event) => {
+				let dom = event.target;
+				console.log(dom.scrollTop);
+
+				// the Y coordinate of the current content with his div
+				const scrollTop = dom.scrollTop;
+				// the height of the your div(browser height in this case)
+				const clientHeight = dom.clientHeight;
+
+				// the total height of content
+				const scrollHeight = dom.scrollHeight;
+
+				// scrollY only appears in window object
+				const scrollY = window.scrollY;
+				console.log(scrollTop, scrollHeight, clientHeight, scrollY);
+			});
+		</script>
+	</body>
+</html>

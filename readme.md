@@ -12,6 +12,7 @@ My progress to master FrontEnd interviews. Gonna learn and update the repo until
 1. [What is OAuth?](/browser/oauth/readme.md)
 1. [What is HTML Event Capturing vs Event Bubbling (Delegation)](/browser/event-delegation/readme.md)
 1. [Common DOM Properties and Methods](/browser/dom-properties-methods/readme.md)
+1. [Scroll Event](/browser/scroll/readme.md)
 
 ## JS Knowledge
 
@@ -69,8 +70,9 @@ My progress to master FrontEnd interviews. Gonna learn and update the repo until
 1. Throttling
     - [basic: 1 per X ms](/implementation/throttling/simple.js)
     - [advanced: X per Y ms](/implementation/throttling/advanced.js)
-1. [Clear All Timeouts](/implementation/clearAllTimeouts/index.js)
 1. [Virtual Dom](/implementation/virtual-dom/prototype/main.html)
+1. [Clear All Timeouts](/implementation/clearAllTimeouts/index.js)
+1. [Infinite Scroll](/browser/scroll/infinite.html)
 
 ## Common Algorithms of DOM Elements
 

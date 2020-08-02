@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style></style>
+	</head>
+	<body>
+		<div id="root"></div>
+
+		<script>
+			const $root = document.getElementById("root");
+			for (let i = 0; i < 1000; i++) {
+				const $div = document.createElement("div");
+				$div.textContent = `node ${i}`;
+				$root.appendChild($div);
+			}
+
+			let isLoading = false;
+			let addedIdx = 0;
+
+			window.addEventListener("scroll", (event) => {
+				let dom = event.target;
+
+				// the Y coordinate of the current content with his documentElement
+				// const scrollTop =
+				// 	(dom.documentElement && dom.documentElement.scrollTop) ||
+				// 	dom.body.scrollTop;
+				// // the height of the your documentElement
+				// const clientHeight =
+				// 	dom.documentElement.clientHeight || window.innerHeight;
+
+				// // the total height of documentElement
+				// const scrollHeight =
+				// 	(dom.documentElement && dom.documentElement.scrollHeight) ||
+				// 	dom.body.scrollHeight;
+
+				// the Y coordinate of the current content with his documentElement
+				const scrollTop = dom.documentElement.scrollTop;
+				// the height of the your documentElement
+				const clientHeight = dom.documentElement.clientHeight;
+
+				// the total height of documentElement
+				const scrollHeight = dom.documentElement.scrollHeight;
+
+				// scrollY only appears in window object
+				const scrollY = window.scrollY;
+
+				console.log(scrollTop, scrollHeight, clientHeight, scrollY);
+
+				// we can use debouncing, but here i just use setTimeout + boolean
+				if (scrollTop + clientHeight < scrollHeight || isLoading) {
+					return;
+				}
+				console.log("add a new node");
+				const $div = document.createElement("div");
+				$div.textContent = `added ${addedIdx}`;
+				$root.appendChild($div);
+				addedIdx += 1;
+
+				isLoading = true;
+				setTimeout(() => {
+					isLoading = false;
+				}, 3000);
+			});
+		</script>
+	</body>
+</html>

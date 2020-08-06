@@ -1,63 +1,46 @@
-// advanced version
-// at most execute X for every Y milliseconds
-const throttle = (fn, n, ms) => {
-	const ht = {};
+const sleep = require("../sleep");
+/*
+ * Implement a rate-limiter.
+ *
+ * Your rate-limiter should create a rate-limited function that calls
+ * `func` each time it is invoked, up to a certain number of times
+ * (as specified by `limit`), within `interval` milliseconds.
+ *
+ * Your implementation only needs to accept three arguments,
+ * `func`, `interval` and `limit`.
+ */
+
+function rateLimit(fn, interval, limit = 1) {
+	let count = 0;
+	let isConsumed = false;
 	return (...args) => {
-		const key = args[0];
-		const timestamp = args[1];
-		if (key in ht) {
-			let left = timestamp - ms;
-			const idx = upperBsearch(ht[key], left);
-			ht[key] = ht[key].slice(idx); // O( N - idx)
-			if (ht[key].length >= n) {
-				return;
-			}
+		if (isConsumed) {
+			return;
 		}
-		fn.apply(this, args);
-		if (key in ht) {
-			ht[key].push(timestamp);
-		} else {
-			ht[key] = [timestamp];
+		fn(...args);
+		count += 1;
+		if (count === limit) {
+			isConsumed = true;
+			setTimeout(() => {
+				isConsumed = false;
+			}, interval);
 		}
 	};
-};
+}
 
-// O(logN)
-const upperBsearch = (nums, target) => {
-	let left = 0;
-	let right = nums.length;
-	while (left < right) {
-		const mid = Math.floor((left + right) / 2);
-		if (target >= nums[mid]) {
-			left = mid + 1;
-		} else {
-			right = mid;
-		}
-	}
-	return left;
-};
-
-// 2 times per 5 ms
-const sayHello = throttle(
-	(key, timestamp) => {
-		console.log("hello", key, timestamp);
-	},
-	2,
-	5
-);
+function greet(country, year) {
+	console.log(`Welcome to ${country} in ${year}!`);
+}
 
 const f = async () => {
-	sayHello("a", 1); // print
-	sayHello("a", 2); // print
-	sayHello("a", 3);
-	sayHello("a", 4);
-	sayHello("a", 5);
-	sayHello("a", 6); // print
-	sayHello("a", 7); // print
-	sayHello("a", 8);
-	sayHello("a", 9);
-	sayHello("a", 10);
-	sayHello("a", 11); // print
+	// rateLimitedGreet can only invoke greet 3 times in 1000 ms
+	const rateLimitedGreet = rateLimit(greet, 1000, 3);
+	rateLimitedGreet("Taiwan", 1); // Prints "Welcome to Taiwan 1!"
+	rateLimitedGreet("Vietnam", 2); // Prints "Welcome to Vietnam 2!"
+	rateLimitedGreet("India", 3); // Prints "Welcome to India 3!"
+	rateLimitedGreet("Singapore", 4); // Nothing printed
+	await sleep(1000);
+	rateLimitedGreet("Hong Kong", 5); // Prints "Welcome to Hong Kong 5!"
+	rateLimitedGreet("Malaysia", 6); // Prints "Welcome to Malaysia 6!"
 };
-// the terminal will just print hello 5 after one second
 f();

@@ -23,6 +23,7 @@ function rateLimit(fn, interval, limit = 1) {
 			isConsumed = true;
 			setTimeout(() => {
 				isConsumed = false;
+				count = 0;
 			}, interval);
 		}
 	};
@@ -35,12 +36,12 @@ function greet(country, year) {
 const f = async () => {
 	// rateLimitedGreet can only invoke greet 3 times in 1000 ms
 	const rateLimitedGreet = rateLimit(greet, 1000, 3);
-	rateLimitedGreet("Taiwan", 1); // Prints "Welcome to Taiwan 1!"
-	rateLimitedGreet("Vietnam", 2); // Prints "Welcome to Vietnam 2!"
-	rateLimitedGreet("India", 3); // Prints "Welcome to India 3!"
-	rateLimitedGreet("Singapore", 4); // Nothing printed
+	rateLimitedGreet("Taiwan", 2010); // Prints "Welcome to Taiwan 1!"
+	rateLimitedGreet("Vietnam", 2012); // Prints "Welcome to Vietnam 2!"
+	rateLimitedGreet("India", 2014); // Prints "Welcome to India 3!"
+	rateLimitedGreet("Singapore", 2016); // Nothing printed
 	await sleep(1000);
-	rateLimitedGreet("Hong Kong", 5); // Prints "Welcome to Hong Kong 5!"
-	rateLimitedGreet("Malaysia", 6); // Prints "Welcome to Malaysia 6!"
+	rateLimitedGreet("Hong Kong", 2019); // Prints "Welcome to Hong Kong 5!"
+	rateLimitedGreet("Malaysia", 2020); // Prints "Welcome to Malaysia 6!"
 };
 f();

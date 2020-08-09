@@ -76,7 +76,7 @@ My progress to master FrontEnd interviews. Gonna learn and update the repo until
 
 ## Common Widgets Implementation
 
-1. [Carousel](/widgets-implementation/carousel)
+1. [Carousel](/widgets-implementation/carousel/index.html)
 
 ## Common Algorithms of DOM Elements
 

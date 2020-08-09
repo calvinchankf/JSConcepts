@@ -1,0 +1,55 @@
+body {
+	font-family: sans-serif;
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+}
+
+.carousel {
+	display: flex;
+	position: relative;
+}
+
+.button {
+	background: rosybrown;
+	height: 300px;
+	width: 75px;
+	color: white;
+}
+
+.buttonLeft {
+	border-radius: 10px 0 0 10px;
+}
+
+.buttonRight {
+	border-radius: 0 10px 10px 0;
+}
+
+.carouselDisplay {
+	background: brown;
+	height: 300px;
+	width: 450px;
+	display: flex;
+	overflow: hidden;
+}
+
+.image {
+	width: 100%;
+	min-width: 450px;
+	height: 100%;
+	object-fit: cover;
+	transform: translate(-450px, 0);
+}
+
+/* left button */
+.image-slide-left {
+	transition: 0.3s ease-in-out;
+	transform: translate(0px, 0);
+}
+
+/* right button */
+.image-slide-right {
+	transition: 0.3s ease-in-out;
+	transform: translate(-900px, 0);
+}

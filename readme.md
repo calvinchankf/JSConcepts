@@ -70,9 +70,13 @@ My progress to master FrontEnd interviews. Gonna learn and update the repo until
 1. Throttling (Rate Limiting)
     - [basic: 1 per X ms](/implementation/throttling/simple.js)
     - [advanced: X per Y ms](/implementation/throttling/advanced.js)
-1. [Virtual Dom](/implementation/virtual-dom/prototype/main.html)
 1. [Clear All Timeouts](/implementation/clearAllTimeouts/index.js)
 1. [Infinite Scroll](/browser/scroll/infinite.html)
+1. [Virtual Dom](/implementation/virtual-dom/prototype/main.html)
+
+## Common Widgets Implementation
+
+1. [Carousel](/widgets-implementation/carousel)
 
 ## Common Algorithms of DOM Elements
 

@@ -2,6 +2,8 @@
 
 My progress to master FrontEnd interviews. Gonna learn and update the repo until I am good at it.
 
+This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
+
 ## Browser
 
 1. [What happens when you click a link on a webpage](/browser/what-happens-when/readme.md)

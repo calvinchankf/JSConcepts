@@ -31,11 +31,9 @@
 
 		<script>
 			/*
-      fb interview question
-      - find out the corresponding node in another tree which has the same hierarchy
-
-
-    */
+                fb interview question
+                - find out the corresponding node in another tree which has the same hierarchy
+            */
 			let targetPath = [];
 			function findA(node, target, path) {
 				if (node.id == target) {
@@ -58,7 +56,7 @@
 
 			console.log("start to find target from tree A document.body");
 			// findA(document.body, "e", [])
-			findA(document.getElement("a"), "e", []);
+			findA(document.getElementById("a"), "e", []);
 
 			console.log("targetPath", targetPath);
 
@@ -66,7 +64,38 @@
 			// const ans = findB(document.body, targetPath)
 			// console.log(ans.id)
 			const ans = findB(document.getElementById("n"), targetPath);
-			console.log(ans.id);
+			console.log("1st approach: ", ans.id);
+
+			/*
+                2nd approach
+            */
+			const findNode = (original, clone, target) => {
+				if (original === null || clone == null || target === null) {
+					return null;
+				}
+				if (original === target) {
+					return clone;
+				}
+				const originalChildren = original.children;
+				const cloneChildren = clone.children;
+				for (let i = 0; i < originalChildren.length; i++) {
+					const found = findNode(
+						originalChildren[i],
+						cloneChildren[i],
+						target
+					);
+					if (found !== null) {
+						return found;
+					}
+				}
+				return null;
+			};
+
+			const original = document.getElementById("a");
+			const clone = document.getElementById("n");
+			const target = document.getElementById("e");
+			const result = findNode(original, clone, target);
+			console.log("2nd approach: ", result.id);
 		</script>
 	</body>
 </html>

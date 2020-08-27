@@ -3,14 +3,14 @@ const sleep = require("../sleep");
 // version with cancel
 const debounce = (fn, delay) => {
 	// this block is a closure, it is executed when we declare the function const a
-	let once = null;
+	let last = null;
 	let lastArgs = null;
 
 	// cancel the delayed execution
 	// reset to the initial setup
 	const reset = () => {
 		console.log("❌cancellded");
-		once = null;
+		last = null;
 		lastArgs = null;
 	};
 
@@ -19,10 +19,10 @@ const debounce = (fn, delay) => {
 		// (...args) <- Rest Parameters that we pass in from fn
 		// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
 		lastArgs = args;
-		if (once != null) {
-			clearTimeout(once);
+		if (last != null) {
+			clearTimeout(last);
 		}
-		once = setTimeout(() => {
+		last = setTimeout(() => {
 			// the this is the context of the parent closure
 			if (!lastArgs) return;
 			fn.apply(this, lastArgs);

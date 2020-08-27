@@ -2,7 +2,7 @@
 
 Event Delegation is a technique involving attaching event listeners to the parent instead of attaching to a child. It leverages the power of event-bubble-up mechanism.
 
-Tgere are some of the common JavaScript events:
+There are some of the common JavaScript events:
 
 -   change:: An HTML element has been changed
 -   click:: The user clicks an HTML element

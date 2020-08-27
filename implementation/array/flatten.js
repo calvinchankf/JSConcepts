@@ -28,6 +28,7 @@ let a = [
 console.log(flatten1(a));
 console.log("---");
 
+// 2nd: iterative
 const flatten2 = (obj) => {
 	const res = [];
 	let q = [obj];

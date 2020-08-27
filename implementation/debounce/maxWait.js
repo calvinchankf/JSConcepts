@@ -5,7 +5,7 @@ const sleep = require("../sleep");
 */
 const debounce = (fn, delay, options) => {
 	// this block is a closure, it is executed when we declare the function const a
-	let once = null;
+	let last = null;
 
 	// maxWait related
 	let maxWait = options.maxWait || null;
@@ -17,19 +17,19 @@ const debounce = (fn, delay, options) => {
 		// (...args) <- Rest Parameters that we pass in from fn
 		// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
 		lastArgs = args;
-		if (once != null) {
-			clearTimeout(once);
+		if (last != null) {
+			clearTimeout(last);
 		}
 		if (firstCalled === false && maxWait !== null) {
 			firstCalled = true;
 			setTimeout(() => {
 				fn.apply(this, lastArgs);
 				// clear
-				clearTimeout(once);
+				clearTimeout(last);
 				fnInvoked = true;
 			}, maxWait);
 		}
-		once = setTimeout(() => {
+		last = setTimeout(() => {
 			if (fnInvoked) return;
 			if (!lastArgs) return;
 			// the this is the context of the parent closure

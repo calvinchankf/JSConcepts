@@ -1,3 +1,14 @@
+/*
+    Reminder: arrow function vs bind 
+    https://github.com/facebook/react/issues/9851#issuecomment-306221157
+
+    One drawback of arrow function is it is hard to jest.spyOn. 
+    If u want to unit test your method, u can either
+    - [parent].update()
+    - use bind
+    - or just extract the method/function out to util
+*/
+
 // declaration
 class Vehicle {
 	constructor(make, model, color) {
@@ -33,13 +44,19 @@ class Bus extends Vehicle {
 	// override
 	getName() {
 		// super.getName() <- to super the instance method
-		return `Bus ${this.routeNo} is ${this.make} ${this.model}`;
+		return `${this.make} ${this.model}`;
+	}
+	// call some other methods
+	getIntro() {
+		const name = this.getName();
+		return `This bus is ${name} on route ${this.routeNo}`;
 	}
 }
 
 let bus = new Bus("Honda", "Accord", "Purple", "A21");
 console.log("bus constructor name", bus.constructor.name);
 console.log(bus.getName()); // "Honda Accord in child class."
+console.log(bus.getIntro());
 
 /*
     -------------------------------------

@@ -59,12 +59,7 @@ const rotate = (delta) => {
 	imgDiv.setAttribute("class", `image image-slide-${dir}`);
 	nextImgDiv.setAttribute("class", `image image-slide-${dir}`);
 
-	let newImgDiv;
-	if (delta == -1) {
-		newImgDiv = createImgDiv(imageList, (curIdx + n - 1) % n);
-	} else {
-		newImgDiv = createImgDiv(imageList, (curIdx + n + 1) % n);
-	}
+	const newImgDiv = createImgDiv(imageList, (curIdx + n + delta) % n);
 
 	isAnimating = true;
 	setTimeout(() => {

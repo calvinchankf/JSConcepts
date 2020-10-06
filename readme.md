@@ -80,6 +80,7 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 ## Common Widgets Implementation
 
 1. [Carousel](/widgets-implementation/carousel/index.html)
+1. [Instagram Create Poll](/widgets-implementation/instagram-create-poll/index.html)
 
 ## Common Algorithms of DOM Elements
 

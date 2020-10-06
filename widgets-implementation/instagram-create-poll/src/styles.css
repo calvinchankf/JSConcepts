@@ -1,0 +1,46 @@
+body {
+	font-family: sans-serif;
+	font-size: x-large;
+}
+
+.poll-widget {
+	width: 400px;
+}
+
+.option-nth-wrapper {
+	border: 1px solid #ccc;
+	border-radius: 14px;
+	height: 28px;
+	width: 28px;
+	text-align: center;
+	margin-right: 5px;
+}
+
+.option {
+	border: 1px solid #ccc;
+	border-radius: 28px;
+	margin: 10px;
+	padding: 10px;
+	color: black;
+	display: flex;
+}
+
+.selected {
+	background-color: #4bbb1b;
+	color: white;
+}
+
+.create-options {
+	border: 2px dashed #ccc;
+	border-radius: 28px;
+	margin: 10px;
+	padding: 10px;
+	color: black;
+	display: flex;
+}
+
+.add-option-input {
+	font-size: x-large;
+	border: unset;
+	outline: none;
+}

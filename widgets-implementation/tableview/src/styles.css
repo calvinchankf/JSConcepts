@@ -1,0 +1,26 @@
+body {
+	font-family: sans-serif;
+}
+
+td,
+th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+tr {
+	cursor: pointer;
+}
+
+/* tr:nth-child(even) {
+  background-color: #dddddd;
+} */
+
+.highlight {
+	background-color: red;
+}
+
+.non-highlight {
+	background-color: unset;
+}

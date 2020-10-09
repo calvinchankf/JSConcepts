@@ -72,9 +72,9 @@ const findDatasetFromAncestors = (node) => {
 
 // event listensers
 $accordionDiv.addEventListener("click", (e) => {
-    // const { index } = e.target.dataset
+    // const { index } = e.target.parentNode.dataset
     const targetNode = findDatasetFromAncestors(e.target)
-    const { index } = targetNode.dataset
+    const index = parseInt(targetNode.dataset.index)
 
 	if (selectedIndices.has(index)) {
 		// remove

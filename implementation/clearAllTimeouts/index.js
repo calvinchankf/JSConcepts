@@ -3,9 +3,9 @@ const nativeSetTimeout = setTimeout;
 let allTimeouts = [];
 
 setTimeout = (callback, delay) => {
-	const id = nativeSetTimeout(callback, delay);
-	allTimeouts.push(id);
-	return id;
+	const ref = nativeSetTimeout(callback, delay);
+	allTimeouts.push(ref);
+	return ref;
 };
 
 const creallAllTimeout = () => {

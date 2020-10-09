@@ -1,4 +1,4 @@
-// bind is different with apply and call, it basically 'insert' argument as this anf put 'this' in the target function
+// bind is different with apply and call, it basically 'insert' argument as this and put 'this' in the target function
 
 let customer1 = {
   name: 'Leo',

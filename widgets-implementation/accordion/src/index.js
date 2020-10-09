@@ -23,19 +23,20 @@ const $accordionDiv = document.querySelector(".accordion");
 
 const createRowDiv = (row, idx) => {
 	const $row = document.createElement("div");
-	const $titleDiv = createTitleDiv(row, idx);
+	const $titleDiv = createTitleDiv(row);
 	const $descDiv = createDescDiv(row);
-	$row.setAttribute("class", "accordion-row");
+    $row.setAttribute("class", "accordion-row");
+    $row.setAttribute("data-index", idx);
 	$row.appendChild($titleDiv);
 	$row.appendChild($descDiv);
 	return $row;
 };
 
-const createTitleDiv = (row, idx) => {
+const createTitleDiv = (row) => {
 	const $titleWrapper = document.createElement("div");
 	const $titleDiv = document.createTextNode(row.title);
-	$titleWrapper.setAttribute("class", "accordion-row-title");
-	$titleWrapper.setAttribute("data-index", idx);
+    $titleWrapper.setAttribute("class", "accordion-row-title");
+    // $titleWrapper.setAttribute("data-index", idx);
 	$titleWrapper.appendChild($titleDiv);
 	return $titleWrapper;
 };
@@ -57,11 +58,23 @@ data.forEach((obj, i) => {
 	$accordionDiv.appendChild(createRowDiv(obj, i));
 });
 
+// find dataset from ancestors
+// if u dont want to do this(since it takes time), set data-index on the top most div (where a user clicks on directly)
+const findDatasetFromAncestors = (node) => {
+    while (node != null || node != undefined) {
+        if (Object.keys(node.dataset).length > 0) {
+            return node
+        }
+        node = node.parentNode
+    }
+    return undefined
+}
+
 // event listensers
 $accordionDiv.addEventListener("click", (e) => {
-	const { index } = e.target.dataset;
-
-	console.log(e.target.dataset);
+    // const { index } = e.target.dataset
+    const targetNode = findDatasetFromAncestors(e.target)
+    const { index } = targetNode.dataset
 
 	if (selectedIndices.has(index)) {
 		// remove

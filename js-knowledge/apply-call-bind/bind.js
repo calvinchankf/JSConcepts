@@ -27,8 +27,9 @@ helloNat('Hello'); // Hello Nat
  * 
  */
 Function.prototype.myBind = function (context) {
-    const fn = this;
+    const fn = this; // need to capture the "this" here
     return function (...args) {
+        // because "this" her is the context inside return function (...args) {}
         return fn.apply(context, args);
     };
 };

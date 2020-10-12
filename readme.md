@@ -83,6 +83,7 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 1. [Carousel](/widgets-implementation/carousel/index.html)
 1. [Instagram Create Poll](/widgets-implementation/instagram-create-poll/index.html)
 1. [Multiselect Tableview](/widgets-implementation/tableview/index.html)
+1. [Bebounced Searchbar](/widgets-implementation/debounced-searchbar/index.html)
 
 ## Common Algorithms of DOM Elements
 

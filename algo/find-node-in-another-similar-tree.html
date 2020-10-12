@@ -34,42 +34,40 @@
                 fb interview question
                 - find out the corresponding node in another tree which has the same hierarchy
             */
-			let targetPath = [];
-			function findA(node, target, path) {
-				if (node.id == target) {
-					targetPath = path;
-				}
-				for (let i = 0; i < node.children.length; i++) {
-					const child = node.children[i];
-					findA(child, target, [...path, i]);
-				}
-			}
-
-			function findB(root, path) {
-				let cur = root;
-				while (path.length > 0) {
-					head = path.shift();
-					cur = cur.children[head];
-				}
-				return cur;
-			}
-
-			console.log("start to find target from tree A document.body");
-			// findA(document.body, "e", [])
-			findA(document.getElementById("a"), "e", []);
-
-			console.log("targetPath", targetPath);
-
-			console.log("find the corresponding node in tree B");
-			// const ans = findB(document.body, targetPath)
-			// console.log(ans.id)
-			const ans = findB(document.getElementById("n"), targetPath);
-			console.log("1st approach: ", ans.id);
+            const original = document.getElementById("a");
+			const clone = document.getElementById("n");
+            const target = document.getElementById("e");
+            let findNode, result
+            /*
+                1st: BFS
+            */
+            findNode = (original, clone, target) => {
+                if (original === null || clone == null || target === null) {
+					return null;
+                }
+                const q = [[original, clone]]
+                while (q.length > 0) {
+                    const [a, b] = q.shift()
+                    if (a == target) {
+                        return b
+                    }
+                    const n = a.children.length
+                    for (let i = 0; i < n; i++) {
+                        q.push([
+                            a.children[i],
+                            b.children[i]
+                        ])
+                    }
+                }
+                return null
+            }
+			result = findNode(original, clone, target);
+			console.log("1st approach: ", result.id);
 
 			/*
-                2nd approach
+                2nd approach: recursive dfs
             */
-			const findNode = (original, clone, target) => {
+			findNode = (original, clone, target) => {
 				if (original === null || clone == null || target === null) {
 					return null;
 				}
@@ -90,11 +88,7 @@
 				}
 				return null;
 			};
-
-			const original = document.getElementById("a");
-			const clone = document.getElementById("n");
-			const target = document.getElementById("e");
-			const result = findNode(original, clone, target);
+			result = findNode(original, clone, target);
 			console.log("2nd approach: ", result.id);
 		</script>
 	</body>

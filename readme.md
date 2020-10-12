@@ -90,6 +90,9 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 1. [Print DOM Hierarchy](/algo/print-dom.html)
 1. [Find DOM Node in Another Tree with similar Hierarchy](/algo/find-node-in-another-similar-tree.html)
 1. [DOM Store](/algo/dom-store.html)
+1. [Implement fibanacci using closure](/algo/fibonacci-using-closure.js)
+1. [Implement fibanacci using closure](/algo/fibonacci-using-closure.js)
+1. [Move an element using js](/algo/animate-right.html)
 
 ## Optimization
 

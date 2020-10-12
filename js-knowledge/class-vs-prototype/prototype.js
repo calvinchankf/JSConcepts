@@ -8,12 +8,10 @@ function Vehicle(make, model, color) {
   }
 }
 
-let car = new Vehicle("Toyota", "Corolla", "Black");
-console.log(car);
-
 // problem 1
-let car2 = new Vehicle("Benz", "ggsget", "White");
+let car = new Vehicle("Toyota", "Corolla", "Black");
 car.year = 2012
+let car2 = new Vehicle("Benz", "ggsget", "White");
 console.log(car); // car has 'year'
 console.log(car2); // but car2 instance doesn't have 'year'
 

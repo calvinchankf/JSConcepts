@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <div id="target">target</div>
+    <script>
+        /*
+            Given a funtion, animateRight(element, duration, distance), move the element to the right with distance within duration
+        */
+        const animateRight = (element, duration, distance) => {
+            const startTime = new Date() // or new Date().getTime();
+            const intervalRef = setInterval(()=> {
+                const endTime = new Date()
+                const percent = (endTime - startTime) / duration
+                
+                if (percent >= 1) {
+                    clearInterval(intervalRef);
+                }
+
+                element.style.marginLeft = `${parseInt(percent * distance)}px`;
+            }, 16); // 60 fps => 0.01666666667 second
+        }
+
+        const target = document.getElementById("target");
+        animateRight(target, 1000, 500)
+
+    </script>
+
+</body>
+
+</html>

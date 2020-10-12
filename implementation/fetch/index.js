@@ -3,6 +3,7 @@
 */
 const myFetch = (url) => {
 	return new Promise((resolve, reject) => {
+
 		function reqListener() {
 			var data = JSON.parse(this.responseText);
 			console.log("XMLHttpRequest Responsse:", data);
@@ -14,11 +15,34 @@ const myFetch = (url) => {
 			reject(err);
 		}
 
-		const oReq = new XMLHttpRequest();
-		oReq.onload = reqListener;
-		oReq.onerror = reqError;
-		oReq.open("get", url, true);
-		oReq.send();
+		const xhr = new XMLHttpRequest();
+		xhr.onload = reqListener;
+		xhr.onerror = reqError;
+		xhr.open("get", url, true);
+		xhr.send();
+	});
+};
+
+const myFetchPost = (url, body) => {
+	return new Promise((resolve, reject) => {
+
+		function reqListener() {
+			var data = JSON.parse(this.responseText);
+			console.log("XMLHttpRequest Responsse:", data);
+			resolve(data);
+		}
+
+		function reqError(err) {
+			console.log("XMLHttpRequest Error:", err);
+			reject(err);
+		}
+
+        const xhr = new XMLHttpRequest();
+        xhr.setRequestHeader("Content-Type", "application/json");
+		xhr.onload = reqListener;
+		xhr.onerror = reqError;
+		xhr.open("post", url, true);
+		xhr.send(JSON.stringify(body));  // Make sure to stringify
 	});
 };
 

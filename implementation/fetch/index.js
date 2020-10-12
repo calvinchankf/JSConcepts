@@ -49,7 +49,7 @@ invalidButton.addEventListener("click", async () => {
 		await f("http://calvinchakf.com/error");
 	} catch (error) {
         $rowsDiv.innerHTML = ''
-        generateError(error)
+        generateErrorView(error)
 	}
 });
 
@@ -70,7 +70,7 @@ const generateTableView = (arr) => {
     });
 }
 
-const generateError = (error) => {
+const generateErrorView = (error) => {
     const $text = document.createTextNode(error.message || 'fail to load')
     $rowsDiv.appendChild($text)
 }

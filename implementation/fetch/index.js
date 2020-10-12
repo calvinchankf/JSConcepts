@@ -23,16 +23,24 @@ const myFetch = (url) => {
 };
 
 const f = async (url) => {
-	const res = await myFetch(url);
+
+    // the native way
+    // const raw = await fetch(url)
+    // const res = await raw.json()
+
+    // my custom way
+    const res = await myFetch(url);
+
 	return res;
 };
 
-const displayDiv = document.querySelector(".display");
+const $rowsDiv = document.querySelector("#rows");
 
 const hackernewsButton = document.querySelector(".hackernews");
 hackernewsButton.addEventListener("click", async () => {
-	const data = await f("https://hn.algolia.com/api/v1/search?query=apple");
-	displayDiv.innerHTML = JSON.stringify(data);
+    const data = await f("https://hn.algolia.com/api/v1/search?query=apple");
+    $rowsDiv.innerHTML = ''
+    generateTableView(data.hits)
 });
 
 const invalidButton = document.querySelector(".invalid");
@@ -40,6 +48,29 @@ invalidButton.addEventListener("click", async () => {
 	try {
 		await f("http://calvinchakf.com/error");
 	} catch (error) {
-		displayDiv.innerHTML = error.type;
+        $rowsDiv.innerHTML = ''
+        generateError(error)
 	}
 });
+
+/*
+    construct the UI
+*/
+const generateRow = (obj) => {
+    const $row = document.createElement("div")
+    const $text = document.createTextNode(obj.title)
+    $row.appendChild($text)
+    return $row
+}
+
+const generateTableView = (arr) => {
+    arr.forEach(obj => {
+        const $row = generateRow(obj)
+        $rowsDiv.appendChild($row)
+    });
+}
+
+const generateError = (error) => {
+    const $text = document.createTextNode(error.message || 'fail to load')
+    $rowsDiv.appendChild($text)
+}

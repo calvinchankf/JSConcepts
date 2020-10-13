@@ -22,6 +22,8 @@
                 has(node) // returns boolean
                 get(node) // returns node or undefined
                 set(node, value) // "upsert", update or insert
+
+                how about remove(node) ???
 			*/
 
 			/*
@@ -29,72 +31,122 @@
                 - Map class can use reference as keys
                 - as soon as the element is removed from DOM tree, the object will be garbage-collected to free memory
 			*/
-			class DOMStore {
-				constructor() {
-					this.map = new WeakMap();
-				}
+			// class DOMStore {
+			// 	constructor() {
+			// 		this.map = new WeakMap();
+			// 	}
 
-				set(node, value) {
-					return this.map.set(node, vaue);
-				}
+			// 	set(node, value) {
+			// 		return this.map.set(node, vaue);
+			// 	}
 
-				get(node) {
-					return this.map.get(node);
-				}
+			// 	get(node) {
+			// 		return this.map.get(node);
+			// 	}
 
-				has(node) {
-					return this.map.has(node);
-				}
-			}
+			// 	has(node) {
+			// 		return this.map.has(node);
+			// 	}
+			// }
 
+			// /*
+            //     2nd approach: closure + hashtable
+            //     - mutate the node
+            //     - a closure to generate keys from −2^53 < i < 2^53 (or 0 to 2^53 in this case)
+            //     - and a hashtable to map the keys to their associated DOM element
+
+            //     But if we do this, we must tell the interviewer that there are at least 2 tradeoffs
+            //     - DOM elements will not be garbage-collected after removal from the page
+            //     - we could use up all 2^54 keys <- altho I think that if we use up, your website must be too big, you are updating your DOM too frequently or your user has been staying on the page for a very loooooooog time
+			// */
+			// const generateKey = (function () {
+			// 	// declare variables that only be accessed within the closure
+			// 	let counter = 0; // or use timestamp
+			// 	return function () {
+            //         const key = counter
+			// 		counter += 1;
+			// 		return key;
+			// 	};
+			// })();
+
+			// class DOMStore {
+			// 	constructor() {
+			// 		this.map = {};
+			// 	}
+
+			// 	set(node, value) {
+			// 		const key = generateKey();
+			// 		node["key"] = key;
+			// 		this.map[key] = vaue;
+			// 	}
+
+			// 	get(node) {
+			// 		const key = node["key"];
+			// 		return this.map[key];
+			// 	}
+
+			// 	has(node) {
+			// 		return this.map[node] !== undefined;
+			// 	}
+			// }
 			/*
-                2nd approach: closure + hashtable
-                - mutate the node
-                - a closure to generate keys from −2^53 < i < 2^53 (or 0 to 2^53 in this case)
-                - and a hashtable to map the keys to their associated DOM element
+                Use ES6 Symbol
+                - Symbol() generates uuid ever time we invoke
+                - but uuid of Symbol() doesnt have a literal value
 
-                But if we do this, we must tell the interviewer that there are at least 2 tradeoffs
-                - DOM elements will not be garbage-collected after removal from the page
-                - we could use up all 2^54 keys <- altho I think that if we use up, your website must be too big, you are updating your DOM too frequently or your user has been staying on the page for a very loooooooog time
-			*/
-			const generateKey = (function () {
-				// declare variables that only be accessed within the closure
-				let counter = -1;
-				return function () {
-					counter += 1;
-					return counter;
-				};
-			})();
+                According to the doc https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol
+                "
+                    Every symbol value returned from Symbol() is unique.
+                    A symbol value may be used as an identifier for object properties; 
+                    this is the data type's primary purpose, although other use-cases exist, such as enabling opaque data types, 
+                    or serving as an implementation-supported unique identifier in general.
+                "
+                
+                ref:
+                - https://www.1point3acres.com/bbs/thread-606623-1-1.html
+                - https://medium.com/intrinsic/javascript-symbols-but-why-6b02768f4a5c
 
-			class DOMStore {
+                One caveat is that we need to mutate the DOM node
+            */
+            class DOMStore {
 				constructor() {
 					this.map = {};
 				}
 
 				set(node, value) {
-					const key = generateKey();
-					node["key"] = key;
-					this.map[key] = vaue;
+					const key = Symbol('node-key')
+                    node.key = key
+                    this.map[key] = value
 				}
 
 				get(node) {
-					const key = node["key"];
-					return this.map[key];
+					return this.map[node.key]
 				}
 
 				has(node) {
-					return this.map[node] !== undefined;
+					return node.key in this.map
 				}
 			}
-			/*
-                To dig deep, there is no easy way to do this. If the interviewer asks you this, s/he might expect you to tell more about
 
-                the implementation of hashtable
-                hash function
-                open hashing vs close hashing
-                In node v8, es6 Map, Set, WeakMap, WeakSet use hash code https://v8.dev/blog/hash-code
-                In general, checkout deterministic hash tables https://wiki.mozilla.org/User:Jorend/Deterministic_hash_tables
-            */
+            const domStore = new DOMStore()
+            const a = document.querySelector('#a')
+            const b = document.querySelector('#b')
+            const c = document.querySelector('#c')
+            const d = document.querySelector('#d')
+
+            domStore.set(a, 1)
+            domStore.set(b, 2)
+            domStore.set(c, 3)
+
+            console.log(domStore.get(a))
+            console.log(domStore.get(b))
+
+            console.log(domStore.has(c))
+            console.log(domStore.has(d))
+
+            console.log(a)
+            console.log(Object.keys(a)) // ['key'] <- mutated the DOM tree
+
 		</script>
 	</body>
 </html>

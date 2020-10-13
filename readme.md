@@ -94,6 +94,7 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 1. [Implement fibanacci using closure](/algo/fibonacci-using-closure.js)
 1. [Implement fibanacci using closure](/algo/fibonacci-using-closure.js)
 1. [Move an element using js](/algo/animate-right.html)
+1. [Mirror the architecture of a DOM tree](/algo/mirror-dom.js)
 
 ## Optimization
 

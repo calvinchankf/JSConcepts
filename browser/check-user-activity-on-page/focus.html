@@ -1,0 +1,26 @@
+<!-- 
+    For tab switching, tab focus, and switch to another app
+
+    ref: https://www.codingwithjesse.com/blog/detect-browser-window-focus/
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>focus</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <h2>Hi</h2>
+    <script>
+        function onBlur() {
+            document.title = 'blurred'
+        };
+        function onFocus(){
+            document.title = 'focused'
+        };
+        window.onfocus = onFocus;
+        window.onblur = onBlur;
+    </script>
+  </body>
+</html>

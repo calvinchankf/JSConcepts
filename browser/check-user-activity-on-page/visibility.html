@@ -1,0 +1,18 @@
+<!-- For tab switching, but still visible if 2 tabs are all visible -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>visible</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <h2>Hi</h2>
+    <script>
+        document.addEventListener('visibilitychange', function() {
+            document.title = document.visibilityState;
+            console.log(document.visibilityState);
+        });
+    </script>
+  </body>
+</html>

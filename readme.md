@@ -15,6 +15,7 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 1. [What is HTML Event Capturing vs Event Bubbling (Delegation)](/browser/event-delegation/readme.md)
 1. [Common DOM Properties and Methods](/browser/dom-properties-methods/readme.md)
 1. [Scroll Event](/browser/scroll/readme.md)
+1. [Check User Activity On a Page](/browser/check-user-activity-on-page)
 
 ## JS Knowledge
 

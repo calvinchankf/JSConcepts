@@ -52,3 +52,7 @@ a = [
 	9,
 ];
 console.log(flatten2(a));
+
+/*
+    followup: object
+*/

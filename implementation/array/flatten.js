@@ -1,5 +1,5 @@
 /*
-  Classic interivew question: implement `flatten`
+    Classic interivew question: implement `flatten`
 */
 
 // 1st: recursion

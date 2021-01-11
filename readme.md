@@ -86,6 +86,7 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 1. [Multiselect Tableview](/widgets-implementation/tableview/index.html)
 1. [Debounced Searchbar](/widgets-implementation/debounced-searchbar/index.html)
 1. [Images at Corners](/widgets-implementation/images-at-corners/index.html)
+1. [Game of Life](/widgets-implementation/game-of-life/index.html)
 
 ## Common Algorithms of DOM Elements
 

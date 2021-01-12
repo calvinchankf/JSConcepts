@@ -71,7 +71,7 @@ const countLivingNeighbors = (board, i, j) => {
         if (_i < 0 || _i == R || _j < 0 || _j == C) {
             continue
         }
-        if (board[_i][_j] % 10 == 1) {
+        if (board[_i][_j] == 1) {
             count += 1
         }
     }
@@ -99,7 +99,7 @@ const renderRow = (row, i) => {
         if (j+1 == C) {
             cellCss += ' last-col'
         }
-        
+
         $cell.setAttribute("class", cellCss);
         $cell.setAttribute("data-index", `${i},${j}`)
         $row.appendChild($cell)

@@ -83,10 +83,11 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 1. [Accordion](/widgets-implementation/accordion/index.html)
 1. [Carousel](/widgets-implementation/carousel/index.html)
 1. [Instagram Create Poll](/widgets-implementation/instagram-create-poll/index.html)
+1. [Game of Life](/widgets-implementation/game-of-life/index.html)
 1. [Multiselect Tableview](/widgets-implementation/tableview/index.html)
 1. [Debounced Searchbar](/widgets-implementation/debounced-searchbar/index.html)
 1. [Images at Corners](/widgets-implementation/images-at-corners/index.html)
-1. [Game of Life](/widgets-implementation/game-of-life/index.html)
+1. [CSV Viewer](/widgets-implementation/csv-viewer/index.html)
 
 ## Common Algorithms of DOM Elements
 

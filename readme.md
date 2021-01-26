@@ -77,6 +77,7 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 1. [Clear All Timeouts](/implementation/clearAllTimeouts/index.js)
 1. [Infinite Scroll](/browser/scroll/infinite.html)
 1. [Virtual Dom](/implementation/virtual-dom/prototype/main.html)
+1. [Fetch Timeout with Retry](/implementation/fetch-timeout/index.js)
 
 ## Common Widgets Implementation
 

@@ -55,6 +55,7 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 1. [Array Filter](/implementation/array/filter.js)
 1. [Array Flatten](/implementation/array/flatten.js)
 1. [Array ForEach](/implementation/array/forEach.js)
+1. [Objects Merge](/implementation/objects-merge/index.js)
 1. LRU
     - [using Map](/lru-cache/use_map.js)
     - [using Doubly Linked List and Hash Table](/lru-cache/use_linked_list_hashtable.js)
@@ -71,13 +72,12 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
     - [basic](/implementation/debounce/simple.js)
     - [with MaxWait](/implementation/debounce/maxWait.js)
     - [with Cancel](/implementation/debounce/cancel.js)
-1. Throttling (Rate Limiting)
-    - [basic: 1 per X ms](/implementation/throttling/simple.js)
-    - [advanced: X per Y ms](/implementation/throttling/advanced.js)
+1. [Throttling/Rate Limiting](/implementation/throttling/index.js)
 1. [Clear All Timeouts](/implementation/clearAllTimeouts/index.js)
 1. [Infinite Scroll](/browser/scroll/infinite.html)
 1. [Virtual Dom](/implementation/virtual-dom/prototype/main.html)
 1. [Fetch Timeout with Retry](/implementation/fetch-timeout/index.js)
+1. [Server-Sent Events](/implementation/server-sent-events/readme.md)
 
 ## Common Widgets Implementation
 

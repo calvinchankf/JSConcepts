@@ -3,18 +3,17 @@
 */
 
 // 1st: recursion
-const flatten1 = (obj) => {
-	const arr = [];
-	if (Array.isArray(obj)) {
-		for (let x of obj) {
-			const temp = flatten1(x);
-			arr.push(...temp);
-		}
-	} else {
-		arr.push(obj);
-	}
-	return arr;
-};
+Array.prototype.flatten1 = function() {
+    const res = [];
+    for (let x of this) {
+        if (Array.isArray(x)) {
+            res.push(...x.flatten1())
+        } else {
+            res.push(x)
+        }
+    }
+    return res
+}
 
 let a = [
 	1,
@@ -25,13 +24,13 @@ let a = [
 	],
 	9,
 ];
-console.log(flatten1(a));
+console.log(a.flatten1());
 console.log("---");
 
 // 2nd: iterative
-const flatten2 = (obj) => {
-	const res = [];
-	let q = [obj];
+Array.prototype.flatten2 = function() {
+    const res = [];
+	let q = [this];
 	while (q.length > 0) {
 		const head = q.shift();
 		if (Array.isArray(head)) {
@@ -41,7 +40,8 @@ const flatten2 = (obj) => {
 		}
 	}
 	return res;
-};
+}
+
 a = [
 	1,
 	[2, 3, 4],
@@ -51,7 +51,7 @@ a = [
 	],
 	9,
 ];
-console.log(flatten2(a));
+console.log(a.flatten2());
 
 /*
     followup: object

@@ -92,9 +92,9 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 
 ## React Widgets Implementation
 
-1. [Credit Card Component](/react-widgets-implementation/credit-card-component/README.md)
-1. [Question List](/react-widgets-implementation/Question-List/README.md)
-1. [Tip Calculator](/react-widgets-implementation/Tip-Calculator/README.md)
+1. [Credit Card Component](/react-widgets-implementation/CreditCard/README.md)
+1. [Question List](/react-widgets-implementation/QuestionList/README.md)
+1. [Tip Calculator](/react-widgets-implementation/TipCalculator/README.md)
 
 ## Common Algorithms of DOM Elements
 

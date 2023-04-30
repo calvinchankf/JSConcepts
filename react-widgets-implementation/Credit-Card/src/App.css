@@ -1,0 +1,112 @@
+.App {
+  /* text-align: center; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.card {
+    border: #999 solid 1px;
+    border-radius: 10px;
+    margin: 20px;
+    height: 161px;
+    width: 256px;
+    padding: 20px;
+    font-size: 0.9em;
+    position: relative;
+}
+
+.card-logo {
+    height: 70px;
+}
+
+.card-holder {
+    margin-bottom: 8px;
+}
+
+.card-number {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    margin-bottom: 16px;
+    cursor: pointer;
+}
+
+.card-number-12digits {
+    margin-right: 10px;
+}
+
+.card-expires-cvc {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+}
+
+.card-expires {
+    cursor: pointer;
+}
+
+.card-cvv {
+    cursor: pointer;
+}
+
+.visa-logo {
+    height: 32px;
+    width: fit-content;
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.opa50 {
+    opacity: 50%;
+}
+
+.lock-button {
+    border: #999 solid 1px;
+    border-radius: 10px;
+    color: rgb(224, 123, 63);
+    padding: 5px;
+    width: fit-content;
+    cursor: pointer;
+}

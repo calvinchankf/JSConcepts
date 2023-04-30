@@ -79,16 +79,22 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 1. [Fetch Timeout with Retry](/implementation/fetch-timeout/index.js)
 1. [Server-Sent Events](/implementation/server-sent-events/readme.md)
 
-## Common Widgets Implementation
+## Vanilla Widgets Implementation
 
-1. [Accordion](/widgets-implementation/accordion/index.html)
-1. [Carousel](/widgets-implementation/carousel/index.html)
-1. [Instagram Create Poll](/widgets-implementation/instagram-create-poll/index.html)
-1. [Game of Life](/widgets-implementation/game-of-life/index.html)
-1. [Multiselect Tableview](/widgets-implementation/tableview/index.html)
-1. [Debounced Searchbar](/widgets-implementation/debounced-searchbar/index.html)
-1. [Images at Corners](/widgets-implementation/images-at-corners/index.html)
-1. [CSV Viewer](/widgets-implementation/csv-viewer/index.html)
+1. [Accordion](/vanilla-widgets-implementation/accordion/index.html)
+1. [Carousel](/vanilla-widgets-implementation/carousel/index.html)
+1. [Instagram Create Poll](/vanilla-widgets-implementation/instagram-create-poll/index.html)
+1. [Game of Life](/vanilla-widgets-implementation/game-of-life/index.html)
+1. [Multiselect Tableview](/vanilla-widgets-implementation/tableview/index.html)
+1. [Debounced Searchbar](/vanilla-widgets-implementation/debounced-searchbar/index.html)
+1. [Images at Corners](/vanilla-widgets-implementation/images-at-corners/index.html)
+1. [CSV Viewer](/vanilla-widgets-implementation/csv-viewer/index.html)
+
+## React Widgets Implementation
+
+1. [Credit Card Component](/react-widgets-implementation/credit-card-component/README.md)
+1. [Question List](/react-widgets-implementation/Question-List/README.md)
+1. [Tip Calculator](/react-widgets-implementation/Tip-Calculator/README.md)
 
 ## Common Algorithms of DOM Elements
 
@@ -103,5 +109,5 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 
 ## Optimization
 
--   [FrontEnd](/optimization/frontend.md)
--   [BackEnd](/optimization/backend.md)
+- [FrontEnd](/optimization/frontend.md)
+- [BackEnd](/optimization/backend.md)

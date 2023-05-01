@@ -89,6 +89,7 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 1. [Debounced Searchbar](/vanilla-widgets-implementation/debounced-searchbar/index.html)
 1. [Images at Corners](/vanilla-widgets-implementation/images-at-corners/index.html)
 1. [CSV Viewer](/vanilla-widgets-implementation/csv-viewer/index.html)
+1. [Crypto Prices with Glitch mock](/vanilla-widgets-implementation/stock-prices/index.html)
 
 ## React Widgets Implementation
 

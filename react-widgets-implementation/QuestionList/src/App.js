@@ -1,29 +1,21 @@
 import './App.css';
 import React, {useState, useEffect} from 'react';
 
-import _questions from "./mock_questions.json";
-import _submissions from "./mock_submissions.json";
+// import _questions from "./mock_questions.json";
+// import _submissions from "./mock_submissions.json";
 
-const QUESTIONS_API_BASE_URL = 'https://api.frontendexpert.io/api/fe/questions';
-const SUBMISSIONS_API_BASE_URL = 'https://api.frontendexpert.io/api/fe/submissions';
+const QUESTIONS_API_BASE_URL = 'https://ethereal-determined-gaura.glitch.me/algoexpert_fe_questions';
+const SUBMISSIONS_API_BASE_URL = 'https://ethereal-determined-gaura.glitch.me/algoexpert_fe_submissions';
 
 function App() {
     const [questions, setQuestions] = useState([]);
     const [submissions, setSubmissions] = useState([]);
     useEffect(() => {
         async function fetching() {
-            // const [questionResponse, submissionResponse] = await Promise.all([
-            //     fetch(QUESTIONS_API_BASE_URL, {
-            //         mode: 'no-cors'
-            //     }),
-            //     fetch(SUBMISSIONS_API_BASE_URL, {
-            //         mode: 'no-cors'
-            //     })
-            // ]);
-            // console.log(questionResponse)
-            // console.log(submissionResponse)
-            // const _questions = await questionResponse.json();
-            // const _submissions = await submissionResponse.json();
+            const [_questions, _submissions] = await Promise.all([
+                fetch(QUESTIONS_API_BASE_URL).then(raw => raw.json()),
+                fetch(SUBMISSIONS_API_BASE_URL).then(raw => raw.json())
+            ]);
             setQuestions(_questions);
             setSubmissions(_submissions);
         }
@@ -64,7 +56,7 @@ function App() {
                     {
                         Qs.map((q, j) => {
                             return (
-                                <div className='question'>
+                                <div key={j} className='question'>
                                     <div className={`status ${q.status}`}></div>
                                     <h3>{q.name}</h3>
                                 </div>

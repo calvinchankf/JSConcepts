@@ -6,18 +6,6 @@ let hasNext = false
 // UI
 const $tableview = document.getElementById("list");
 
-// const tblHead = document.createElement("thead");
-// const tblColumns = document.createElement("tr");
-// const column_titles = ['Name', 'Price', 'MarketCap'];
-// for (let i = 0; i < 3; i++) {
-//     const cell = document.createElement("th");
-//     const cellText = document.createTextNode(column_titles[i]);
-//     cell.appendChild(cellText);
-//     tblColumns.appendChild(cell);
-// }
-// tblHead.appendChild(tblColumns);
-// $tableview.appendChild(tblHead);
-
 const generateTableview = data => {
     // $tableview.innerHTML = "";
     const tblBody = document.createElement("tbody");

@@ -1,0 +1,25 @@
+.cell {
+    display: flex;
+    padding: 4px 4px 0px 4px;
+}
+
+.cell-index {
+    padding: 4px;
+}
+
+.cell-title {
+    word-break: break-word;
+}
+
+.cell-link {
+    cursor: pointer;
+    word-break: break-word;
+    font-size: small;
+    color: grey;
+}
+
+.cell-desc {
+    word-break: break-word;
+    font-size: small;
+    color: grey;
+}

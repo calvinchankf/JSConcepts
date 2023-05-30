@@ -99,6 +99,7 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 1. [Recent Trades](/react-widgets-implementation/recent-trades/README.md)
 1. [Debounced Searchbar](/react-widgets-implementation/debounced-searchbar/README.md)
 1. [Game of Life](/react-widgets-implementation/game-of-life/README.md)
+1. [Crypto Prices with Glitch mock](/react-widgets-implementation/stock-prices/README.md)
 
 ## Common Algorithms of DOM Elements
 

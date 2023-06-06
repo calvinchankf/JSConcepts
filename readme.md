@@ -93,13 +93,14 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 
 ## React Widgets Implementation
 
-1. [Credit Card Component](/react-widgets-implementation/credit-card/README.md)
-1. [Question List](/react-widgets-implementation/question-list/README.md)
-1. [Tip Calculator](/react-widgets-implementation/tip-calculator/README.md)
-1. [Recent Trades](/react-widgets-implementation/recent-trades/README.md)
-1. [Debounced Searchbar](/react-widgets-implementation/debounced-searchbar/README.md)
-1. [Game of Life](/react-widgets-implementation/game-of-life/README.md)
-1. [Crypto Prices with Glitch mock](/react-widgets-implementation/stock-prices/README.md)
+1. [Credit Card Component](/react-widgets-implementation/credit-card/)
+1. [Question List](/react-widgets-implementation/question-list/)
+1. [Tip Calculator](/react-widgets-implementation/tip-calculator/)
+1. [Recent Trades](/react-widgets-implementation/recent-trades/)
+1. [Debounced Searchbar](/react-widgets-implementation/debounced-searchbar/)
+1. [Game of Life](/react-widgets-implementation/game-of-life/)
+1. [Crypto Prices with Glitch mock](/react-widgets-implementation/stock-prices/)
+1. [React Suspense Playground](/react-widgets-implementation/suspense-playground/)
 
 ## Common Algorithms of DOM Elements
 

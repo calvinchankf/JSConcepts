@@ -1,0 +1,23 @@
+#box {
+	width: 100px;
+	height: 100px;
+    background-color: red;
+    position: absolute;
+}
+
+#resize {
+    width: 10px;
+    height: 10px;
+    background-color: blue;
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+}
+
+/*
+    set the body to 100% to avoid event 
+*/
+html, body{
+	width: 100%;
+	height: 100%;
+}

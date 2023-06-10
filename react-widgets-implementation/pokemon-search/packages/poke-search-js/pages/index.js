@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import PokeCard from "../components/PokeCard";
@@ -21,27 +21,26 @@ class Pokemon {
 
 export default function Home() {
 
-    const [query, setQuery] = useState('')
+    // Other than using a state to control the form input,
+    // we can useRef to reference it so that the page doesn't render repeatedly every time we type
+    const inputRef = useRef(null)
+    
     const [userInput, setUserInput] = useState('')
     const [pokemon, setPokemon] = useState(new Pokemon())
 
-    const userQueryChange = e => {
-        const temp = e.target.value
-        setQuery(temp.toLowerCase())
-    }
-
     const formOnSubmit = e => {
         e.preventDefault()
-        setUserInput(query)
+        setUserInput(inputRef.current)
     }
 
     const clearOnClick = () => {
-        setQuery('')
+        inputRef.current?.value = ''
+        setUserInput('')
         setPokemon(new Pokemon())
     }
 
     const searchOnClick = () => {
-        setUserInput(query)
+        setUserInput(inputRef.current.value)
     }
 
     useEffect(() => {
@@ -87,7 +86,7 @@ export default function Home() {
         <h1 className={styles.title}>Welcome to PokéSearch</h1>
         
         <form onSubmit={formOnSubmit}>
-            <input value={query} onChange={userQueryChange}/>
+            <input ref={inputRef}/>
         </form>
 
         <div className={styles['buttons-on-line']}>

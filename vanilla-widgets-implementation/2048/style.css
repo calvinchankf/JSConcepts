@@ -1,0 +1,83 @@
+html {
+	/* width: 100%;
+	height: 100%; */
+}
+
+body {
+    /* width: 100%;
+    height: 100%; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.row {
+	display: flex;
+    border-top: 1px solid rgb(128, 128, 128);
+}
+
+.row:last-child {
+    border-bottom: 1px solid rgb(128, 128, 128);
+}
+
+.cell {
+	height: 63px;
+	width: 63px;
+	border-left: 1px solid rgb(128, 128, 128);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell:last-child {
+    border-right: 1px solid rgb(128, 128, 128);
+}
+
+.colored-1 {
+	background-color: lightblue;
+}
+
+.colored-2 {
+	background-color: lightcoral;
+}
+
+.colored-4 {
+	background-color: lightcyan;
+}
+
+.colored-8 {
+	background-color: lightgoldenrodyellow;
+}
+
+.colored-16 {
+	background-color: lightgray;
+}
+
+.colored-32 {
+	background-color: lightgreen;
+}
+
+.colored-64 {
+	background-color: lightpink;
+}
+
+.colored-128 {
+	background-color: lightsalmon;
+}
+
+.colored-256 {
+	background-color: lightseagreen;
+}
+
+.colored-512 {
+	background-color: lightskyblue;
+}
+
+.colored-1024 {
+	background-color: lightyellow;
+}
+
+.colored-2048 {
+	background-color: red;
+}

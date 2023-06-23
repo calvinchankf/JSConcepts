@@ -93,6 +93,7 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 1. [Draggable Boz](/vanilla-widgets-implementation/draggable-box/index.html)
 1. [Snake Game](/vanilla-widgets-implementation/snake-game/index.html)
 1. [2048](/vanilla-widgets-implementation/2048/index.html)
+1. [Simple Sudoku](/vanilla-widgets-implementation/simple-sudoku/index.html)
 
 ## React Widgets Implementation
 

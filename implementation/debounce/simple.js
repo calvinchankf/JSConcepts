@@ -1,34 +1,33 @@
 const sleep = require("../sleep");
 
 // simple version
-const debounce = (fn, delay) => {
-	// this block is a closure, it is executed when we declare the function const a
-    let lastTimeout = null;
-    let lastResolve = null
-
-    // the below block is the fn (i) => { console.log('hello ', i) }
-	return (...args) => {
-		// (...args) <- Rest Parameters that we pass in from fn
-		// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
-		if (lastTimeout != null) {
-			clearTimeout(lastTimeout);
+function debounce(func, delay=100) {
+    let timeout_id = null
+    return function() {
+        if (timeout_id) {
+            clearTimeout(timeout_id)
         }
-		lastTimeout = setTimeout(() => {
-            const result = fn(...args)
-            if (lastResolve != null) {
-                lastResolve(result)
-            }
+        timeout_id = setTimeout(func, delay);
+    }
+}
+
+// simple with function args
+function debounce(func, delay=100) {
+    let timer;
+    return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            func(...args)
         }, delay);
-        
-        return new Promise((resolve, _) => lastResolve = resolve)
-	};
-};
+    }
+}
 
-const debouncedGreet = debounce((country, year) => {
+const f = (country, year) => {
     console.log(`Welcome to ${country} in ${year}`);
-}, 1000);
+}
+const debouncedGreet = debounce(f, 1000);
 
-const f = async () => {
+const test = async () => {
 	debouncedGreet("Taiwan", 2010);
 	await sleep(100);
 	debouncedGreet("Vietnam", 2012);
@@ -39,5 +38,29 @@ const f = async () => {
 	await sleep(100);
 	debouncedGreet("Hong Kong", 2019);
 };
-// the terminal will just print "Welcome to Singapore in 2019!"
-f();
+// the terminal will just print "Welcome to Singapore in 2019!" after one second
+test();
+
+/*
+    The problem of the function above is:
+    - the UI will not be updated until the user has completely stopped scrolling **
+    
+    because, you know, we are keeping removing the previos timeout, 
+    so the callback will never be called
+
+    So, we should consider do throttling for UI 
+*/
+function throttle(func, delay=100) {
+    let timer = null
+    let lastArgs = null
+    return (...args) => {
+        lastArgs = args;
+        if (!timer) {
+            timer = setTimeout(() => {
+                timer = null;
+                func(...lastArgs);
+            }, delay);
+        }
+    }
+}
+  

@@ -78,6 +78,7 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 1. [Virtual Dom](/implementation/virtual-dom/prototype/main.html)
 1. [Fetch Timeout with Retry](/implementation/fetch-timeout/index.js)
 1. [Server-Sent Events](/implementation/server-sent-events/readme.md)
+1. [Promise.pool](/implementation/promise.pool/index.js)
 
 ## Vanilla Widgets Implementation
 

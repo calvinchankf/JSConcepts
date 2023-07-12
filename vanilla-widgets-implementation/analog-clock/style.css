@@ -1,0 +1,42 @@
+#clock {
+	position: relative;
+	margin: auto;
+	height: 500px;
+	/*to make the height and width responsive*/
+	width: 500px;
+	/* background: url(clock.png) no-repeat; */
+	/*setting our background image*/
+	background-size: 100%;
+}
+
+#hour,
+#minute,
+#second {
+	position: absolute;
+	border-radius: 10px;
+	transform-origin: bottom;
+}
+
+#hour {
+    background: red;
+	width: 1%;
+	height: 25%;
+	top: 25%;
+	left: 50%;
+}
+
+#minute {
+    background: grey;
+	width: 1%;
+	height: 30%;
+	top: 20%;
+	left: 50%;
+}
+
+#second {
+    background: black;
+	width: 1%;
+	height: 40%;
+	top: 10%;
+	left: 50%;
+}

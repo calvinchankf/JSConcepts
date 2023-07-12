@@ -96,6 +96,7 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 1. [2048](/vanilla-widgets-implementation/2048/index.html)
 1. [Simple Sudoku](/vanilla-widgets-implementation/simple-sudoku/index.html)
 1. [DOM Renderer](/vanilla-widgets-implementation/DOMRenderer/index.html)
+1. [Analog Clock](/vanilla-widgets-implementation/analog-clock/index.html)
 
 ## React Widgets Implementation
 

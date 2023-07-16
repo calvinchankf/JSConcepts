@@ -22,6 +22,19 @@ function throttle(fn, delay=100) {
     }
 }
 
+function throttle2(fn, t) {
+    let nextTime = 0
+    let curTimeout = null
+    return (...args) => {
+        const delay = Math.max(0, nextTime - Date.now())
+        clearTimeout(curTimeout) // meaning that the calls in-between are cancelled
+        curTimeout = setTimeout(() => {
+            fn(...args)
+            nextTime = Date.now() + t
+        }, delay)
+    }
+};
+
 function search(source) {
     // fetch search results for input
     console.log(`searching...via ${source}`)

@@ -20,13 +20,10 @@ class EventManger {
 		this.ht = {};
 	}
 	subscribe(key, cb) {
-		if (this.ht[key]) {
-			this.ht[key].add(cb);
-		} else {
-			this.ht[key] = new Set();
-			this.ht[key].add(cb);
-		}
-
+		if (key in this.cache === false) {
+            this.cache[key] = new Set()
+        }
+        this.cache[key].add(cb)
 		const obj = {
 			unsubscribe: () => {
 				this.ht[key].delete(cb);

@@ -17,18 +17,19 @@ const onDrag = event => {
     }
 }
 
-const dragToggle = () => {
+const dragToggle = e => {
+    e.stopPropagation() // whereas preventDefault() is used for Form
     shouldMove = !shouldMove;
-    console.log(`shouldMove = ${shouldMove}`)
+    // console.log(`shouldMove = ${shouldMove}`)
 }
 
 const resizeToggle = e => {
     e.stopPropagation() // whereas preventDefault() is used for Form
     shouldResize = !shouldResize
-    console.log(`shouldResize = ${shouldResize}`)
+    // console.log(`shouldResize = ${shouldResize}`)
 }
 
-document.body.addEventListener("mousemove", onDrag)
+document.addEventListener("mousemove", onDrag)
 
 document.getElementById("box").addEventListener("mousedown", dragToggle)
 document.getElementById("box").addEventListener("mouseup", dragToggle)

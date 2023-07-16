@@ -15,14 +15,14 @@ const dirs = [
     [-1,0], [0,1], [1,0], [0,-1]
 ]
 
-let board = []
-const initBoard = () => {
-    const res = []
-    for (let i = 0; i < R; i++) {
-        res.push(Array(C).fill(0))
-    }
-    return res
-}
+// let board = [] // we don't need a board 2D array actually, the snake and the food are enough
+// const initBoard = () => {
+//     const res = []
+//     for (let i = 0; i < R; i++) {
+//         res.push(Array(C).fill(0))
+//     }
+//     return res
+// }
 
 const placeFood = () => {
     let emptyCells = []
@@ -89,6 +89,7 @@ const moveSnake = () => {
     }
     snake.add(`${i},${j}`)
 
+    // place the new food if needed
     if (willGrow) {
         placeFood()
     }
@@ -120,7 +121,7 @@ const renderBoard = () => {
 }
 
 newSnake()
-board = initBoard()
+// board = initBoard()
 placeFood()
 renderBoard()
 
@@ -130,7 +131,7 @@ setInterval(() => {
     if (!safeToMove) {
         alert('You LOST!!!')
         newSnake()
-        board = initBoard()
+        // board = initBoard()
         placeFood()
     }
     renderBoard()

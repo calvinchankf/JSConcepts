@@ -48,9 +48,7 @@ const placeFood = () => {
 const checkShouldGrow = () => {
     const keys = [...snake.keys()]
     const head = keys[keys.length-1]
-    let [head_i, head_j] = head.split(',')
-    head_i = Number(head_i)
-    head_j = Number(head_j)
+    const [head_i, head_j] = head.split(',').map(x => Number(x))
     const [di, dj] = dirs[snake_dir]
     const i = head_i + di
     const j = head_j + dj
@@ -76,9 +74,7 @@ const moveSnake = () => {
     }
     // grow
     const head = keys[keys.length-1]
-    let [head_i, head_j] = head.split(',')
-    head_i = Number(head_i)
-    head_j = Number(head_j)
+    const [head_i, head_j] = head.split(',').map(x => Number(x))
     const [di, dj] = dirs[snake_dir]
     const i = head_i + di
     const j = head_j + dj

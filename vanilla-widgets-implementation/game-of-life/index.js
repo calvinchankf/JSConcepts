@@ -120,9 +120,7 @@ $nextButton.addEventListener("click", (e) => {
 $gameBoard.addEventListener("click", (e) => {
     const key = e.target.dataset.index
     console.log(key)
-    let [i, j] = key.split(',')
-    i = parseInt(i)
-    j = parseInt(j)
+    const [i, j] = key.split(',').map(x => Number(x))
     board[i][j] = Math.abs(board[i][j] - 1)
     $gameBoard.innerHTML = ''
     renderGameBoard(board)

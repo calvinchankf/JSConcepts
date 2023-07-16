@@ -85,7 +85,7 @@ const render = () => {
         for (let j = 0; j < 3; j++) {
             const $cell = document.createElement('div')
             $cell.setAttribute("class", "col")
-            $cell.setAttribute("data-index", `${i},${j}`)
+            $cell.setAttribute("data-ij", `${i},${j}`)
             if (game[i][j] !== null) {
                 $cell.innerHTML = game[i][j]   
             }
@@ -96,7 +96,7 @@ const render = () => {
 }
 
 $board.addEventListener('click', (e) => {
-    const key = e.target.dataset.index
+    const key = e.target.dataset.ij
     let [i, j] = key.split(',')
     onclick(i, j)
     checkWinner()

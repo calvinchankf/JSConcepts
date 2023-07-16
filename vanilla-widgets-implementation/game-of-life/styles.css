@@ -17,6 +17,9 @@ body {
 .row {
 	display: flex;
 }
+.row:last-child {
+    border-bottom: 1px solid rgb(128, 128, 128);
+}
 
 .cell {
 	height: 19px;
@@ -24,13 +27,8 @@ body {
 	border-top: 1px solid rgb(128, 128, 128);
 	border-left: 1px solid rgb(128, 128, 128);
 }
-
-.last-col {
-	border-right: 1px solid rgb(128, 128, 128);
-}
-
-.last-row {
-	border-bottom: 1px solid rgb(128, 128, 128);
+.cell:last-child {
+    border-right: 1px solid rgb(128, 128, 128);
 }
 
 .colored {

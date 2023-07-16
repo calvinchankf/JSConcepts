@@ -87,19 +87,11 @@ const renderRow = (row, i) => {
     $row.setAttribute("class", "row");
     for (let j = 0; j < row.length; j++) {
         const $cell = document.createElement("div");
-
         let cellCss = 'cell'
 
         if (row[j] == 1) {
             cellCss += ' colored'
         }
-        if (i+1 == R) {
-            cellCss += ' last-row'
-        }
-        if (j+1 == C) {
-            cellCss += ' last-col'
-        }
-
         $cell.setAttribute("class", cellCss);
         $cell.setAttribute("data-index", `${i},${j}`)
         $row.appendChild($cell)

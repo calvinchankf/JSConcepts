@@ -1,6 +1,5 @@
 let shouldMove = false
 let shouldResize = false
-
 const onDrag = event => {
     const x = event.x;
 	const y = event.y;
@@ -16,21 +15,15 @@ const onDrag = event => {
         document.getElementById("box").style.height = `${y - rect.y}px`
     }
 }
-
 const dragToggle = e => {
     e.stopPropagation() // whereas preventDefault() is used for Form
     shouldMove = !shouldMove;
-    // console.log(`shouldMove = ${shouldMove}`)
 }
-
 const resizeToggle = e => {
     e.stopPropagation() // whereas preventDefault() is used for Form
     shouldResize = !shouldResize
-    // console.log(`shouldResize = ${shouldResize}`)
 }
-
 document.addEventListener("mousemove", onDrag)
-
 document.getElementById("box").addEventListener("mousedown", dragToggle)
 document.getElementById("box").addEventListener("mouseup", dragToggle)
 document.getElementById("resize").addEventListener("mousedown", resizeToggle)

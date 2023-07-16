@@ -9,20 +9,10 @@ const newSnake = () => {
     snake.add(`${11},${10}`)
     snake.add(`${10},${10}`)
 }
-
 let snake_dir = 0 // 0: up, 1: right, 2: bottom, 3: left
 const dirs = [
     [-1,0], [0,1], [1,0], [0,-1]
 ]
-
-// let board = [] // we don't need a board 2D array actually, the snake and the food are enough
-// const initBoard = () => {
-//     const res = []
-//     for (let i = 0; i < R; i++) {
-//         res.push(Array(C).fill(0))
-//     }
-//     return res
-// }
 
 const placeFood = () => {
     let emptyCells = []
@@ -44,7 +34,6 @@ const placeFood = () => {
     food = `${food_i},${food_j}`
     return true
 }
-
 const checkShouldGrow = () => {
     const keys = [...snake.keys()]
     const head = keys[keys.length-1]
@@ -54,7 +43,6 @@ const checkShouldGrow = () => {
     const j = head_j + dj
     return food === `${i},${j}`
 }
-
 const checkWillCollide = (i, j) => {
     if (i < 0 || i == R || j < 0 || j == C) {
         return true
@@ -62,7 +50,6 @@ const checkWillCollide = (i, j) => {
     const key = `${i},${j}`
     return snake.has(key)
 }
-
 const moveSnake = () => {
     const keys = [...snake.keys()]
 
@@ -92,7 +79,6 @@ const moveSnake = () => {
 
     return true
 }
-
 const renderBoard = () => {
     const $board = document.getElementById('board')
     $board.innerHTML = ''
@@ -117,7 +103,6 @@ const renderBoard = () => {
 }
 
 newSnake()
-// board = initBoard()
 placeFood()
 renderBoard()
 
@@ -127,7 +112,6 @@ setInterval(() => {
     if (!moveSucceeded) {
         alert('You LOST!!!')
         newSnake()
-        // board = initBoard()
         placeFood()
     }
     renderBoard()

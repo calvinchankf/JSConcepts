@@ -127,8 +127,8 @@ renderBoard()
 
 // interaction
 setInterval(() => {
-    const safeToMove = moveSnake()
-    if (!safeToMove) {
+    const moveSucceeded = moveSnake()
+    if (!moveSucceeded) {
         alert('You LOST!!!')
         newSnake()
         // board = initBoard()

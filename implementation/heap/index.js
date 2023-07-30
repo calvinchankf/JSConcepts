@@ -13,24 +13,25 @@ class MinHeap {
         this._shiftDown(0)
         return minNode
     }
-    _shiftUp(idx) {
-        const parent = Math.floor((idx - 1)/2)
-        if (parent >= 0 && this.A[idx] < this.A[parent]) {
-            [this.A[idx], this.A[parent]] = [this.A[parent], this.A[idx]];
-            this._shiftUp(parent)
+    _shiftUp(i) {
+        const parentIdx = Math.floor((i-1)/2)
+        if (parentIdx >= 0 && this.A[i][0] < this.A[parentIdx][0]) {
+            [this.A[i], this.A[parentIdx]] = [this.A[parentIdx], this.A[i]];
+            this._shiftUp(parentIdx)
         }
     }
-    _shiftDown(idx) {
-        const children = [idx*2+1, idx*2+2]
-        let smallest = idx
-        for (let i of children) {
-            if (i < this.A.length && this.A[i] < this.A[smallest]) {
-                smallest = i
+    _shiftDown(i) {
+        const children = [i*2+1, i*2+2]
+        let minChildIdx = i
+        for (let j of children) {
+            if (j >= this.A.length) { continue }
+            if (this.A[j][0] < this.A[minChildIdx][0]) {
+                minChildIdx = j
             }
         }
-        if (smallest != idx) {
-            [this.A[smallest], this.A[idx]] = [this.A[idx], this.A[smallest]];
-            this._shiftDown(smallest)
+        if (minChildIdx > i) {
+            [this.A[i], this.A[minChildIdx]] = [this.A[minChildIdx], this.A[i]];
+            this._shiftDown(minChildIdx)
         }
     }
     heapify(values) {

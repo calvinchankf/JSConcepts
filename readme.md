@@ -63,6 +63,7 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 1. [PubSub](/implementation/pubsub/index.js)
 1. [PubSub vs Observer](/implementation/pubsub-vs-observer/readme.md)
 1. [Heap](/implementation/heap/index.js)
+1. [Binary Indexed Tree](/implementation/binary-indexed-tree/index.js)
 1. [Min Queue](/implementation/min-queue/)
 1. [Sleep](/implementation/sleep/index.js)
 1. [Promise](/implementation/promise/simple.js)

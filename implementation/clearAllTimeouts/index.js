@@ -39,14 +39,51 @@ setTimeout(() => console.log("6"), 100);
 	- use global scope
 	*/
 	
-let context = typeof window !== 'undefined' ? window : Function('return this')();
-(function(global) {
+// let context = typeof window !== 'undefined' ? window : Function('return this')();
+// (function(global) {
+// 	'use strict';
+// 	const originalSetTimeout = global.setTimeout;
+// 	const originalClearTimeout = global.clearTimeout;
+// 	const hs = new Set();
+
+// 	global.setTimeout = (fn, t) => {
+// 		const tid = originalSetTimeout(() => {
+// 			hs.delete(tid)
+// 			fn();
+// 		}, t);
+// 		hs.add(tid)
+// 		return tid;
+// 	};
+
+// 	global.clearTimeout = tid => {
+// 		hs.delete(tid)
+// 		originalClearTimeout(tid);
+// 	};
+
+// 	global.clearAllTimeouts = () => {
+// 		for (let tid of hs) {
+// 			originalClearTimeout(tid);
+// 		}
+// 	};
+// })(context)
+
+// setTimeout(() => console.log("1"), 100);
+// setTimeout(() => console.log("2"), 100);
+// setTimeout(() => console.log("3"), 100);
+// setTimeout(() => console.log("4"), 100);
+// setTimeout(() => console.log("5"), 100);
+// clearAllTimeouts();
+// setTimeout(() => console.log("6"), 100);
+
+// console.log('--- no global ---');
+
+(function(g) {
 	'use strict';
-	const originalSetTimeout = global.setTimeout;
-	const originalClearTimeout = global.clearTimeout;
+	const originalSetTimeout = g.setTimeout;
+	const originalClearTimeout = g.clearTimeout;
 	const hs = new Set();
 
-	global.setTimeout = (fn, t) => {
+	g.setTimeout = (fn, t) => {
 		const tid = originalSetTimeout(() => {
 			hs.delete(tid)
 			fn();
@@ -55,17 +92,17 @@ let context = typeof window !== 'undefined' ? window : Function('return this')()
 		return tid;
 	};
 
-	global.clearTimeout = tid => {
+	g.clearTimeout = tid => {
 		hs.delete(tid)
 		originalClearTimeout(tid);
 	};
 
-	global.clearAllTimeouts = () => {
+	g.clearAllTimeouts = () => {
 		for (let tid of hs) {
 			originalClearTimeout(tid);
 		}
 	};
-})(context)
+})(globalThis)
 
 setTimeout(() => console.log("1"), 100);
 setTimeout(() => console.log("2"), 100);

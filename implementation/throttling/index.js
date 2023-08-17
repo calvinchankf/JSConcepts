@@ -45,3 +45,19 @@ const f = async () => {
 	rateLimitedGreet("Malaysia", 2020); // Prints "Welcome to Malaysia 6!"
 };
 f();
+
+/*
+    time-based
+*/
+var throttle = function(fn, t) {
+    let nextTime = 0
+    let curTimeout = null
+    return (...args) => {
+        const delay = Math.max(0, nextTime - Date.now())
+        clearTimeout(curTimeout) // meaning that the calls in-between are cancelled
+        curTimeout = setTimeout(() => {
+            fn(...args)
+            nextTime = Date.now() + t
+        }, delay)
+    }
+};

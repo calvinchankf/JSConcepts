@@ -7,7 +7,7 @@ import styles from "../styles/Home.module.css";
 
 class NotFoundError extends Error {
     constructor(message='') {
-      super(message);
+        super(message);
     }
 }
 
@@ -30,11 +30,11 @@ export default function Home() {
 
     const formOnSubmit = e => {
         e.preventDefault()
-        setUserInput(inputRef.current)
+        setUserInput(inputRef.current.value)
     }
 
     const clearOnClick = () => {
-        inputRef.current?.value = ''
+        inputRef.current.value = ''
         setUserInput('')
         setPokemon(new Pokemon())
     }
@@ -52,7 +52,9 @@ export default function Home() {
             try {
                 const resp = await fetch(`https://pokeapi.co/api/v2/pokemon/${userInput}`)
                 
-                if (resp.status !== 200) {
+                // response.ok means the result is successful - status in the range 200-299
+                // meaning that we can also use response.status here to check
+                if (!resp.ok) {
                     throw new NotFoundError()
                 }
                 const data = await resp.json()

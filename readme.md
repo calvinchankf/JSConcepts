@@ -111,6 +111,7 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 1. [Game of Life](/react-widgets-implementation/game-of-life/)
 1. [Crypto Prices with Glitch mock](/react-widgets-implementation/stock-prices/)
 1. [React Suspense Playground](/react-widgets-implementation/suspense-playground/)
+1. [TODO List](/react-widgets-implementation/todo-list/)
 
 ## Common Algorithms of DOM Elements
 

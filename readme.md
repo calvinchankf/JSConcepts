@@ -74,6 +74,7 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
     - [with MaxWait](/implementation/debounce/maxWait.js)
     - [with Cancel](/implementation/debounce/cancel.js)
 1. [Throttling/Rate Limiting](/implementation/throttling/index.js)
+1. [Debouncing vs Throttling](/implementation/debounce-vs-throttle/demo/index.html)
 1. [Clear All Timeouts](/implementation/clearAllTimeouts/index.js)
 1. [Infinite Scroll](/browser/scroll/infinite.html)
 1. [Virtual Dom](/implementation/virtual-dom/prototype/main.html)
@@ -112,6 +113,7 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 1. [Crypto Prices with Glitch mock](/react-widgets-implementation/stock-prices/)
 1. [React Suspense Playground](/react-widgets-implementation/suspense-playground/)
 1. [TODO List](/react-widgets-implementation/todo-list/)
+1. [Debouncing vs Throttling](/react-widgets-implementation/react-debounce-vs-throttle/)
 
 ## Common Algorithms of DOM Elements
 

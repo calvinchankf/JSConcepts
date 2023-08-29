@@ -114,6 +114,7 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 1. [React Suspense Playground](/react-widgets-implementation/suspense-playground/)
 1. [TODO List](/react-widgets-implementation/todo-list/)
 1. [Debouncing and Throttling hooks](/react-widgets-implementation/react-debounce-vs-throttle/)
+1. [useFetch hook](/react-widgets-implementation/react-fetch-hook/)
 
 ## Common Algorithms of DOM Elements
 

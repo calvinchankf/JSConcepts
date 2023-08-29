@@ -1,0 +1,8 @@
+.App {
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    gap: 16px;
+}

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import './App.css';
 import { useDebounce } from './utils/useDebounce'
 import NewsCell from './components/NewsCell';
@@ -30,11 +30,10 @@ function App() {
             setSearchPage(searchPage+1)
         }
     }
-    
+
+    // approach1
     useEffect(() => {
-
         const abc = new AbortController()
-
         const fetchData = async () => {
             if (debouncedSearchInput.length === 0) {
                 return
@@ -59,9 +58,42 @@ function App() {
             setIsLoading(false)
         }
         fetchData()
-
         return () => abc.abort()
     }, [debouncedSearchInput, searchPage])
+
+    /*
+    // approach2
+    const memoFetch = useCallback(async () => {
+        const abc = new AbortController()
+        if (debouncedSearchInput.length === 0) {
+            return
+        }
+        setIsLoading(true)
+        console.log(`fetchData keyword ${debouncedSearchInput} at ${searchPage}`)
+        const url = `https://hn.algolia.com/api/v1/search?query=${debouncedSearchInput}&page=${searchPage}`
+        const resp = await fetch(url, { signal: abc.signal }).then(raw => raw.json())
+        const data = resp.hits.map((obj, _idx) => ({
+            title: obj.title,
+            url: obj.url,
+            author: obj.author,
+            points: obj.points
+        }))
+        if (searchPage === 1) {
+            setNews(data)
+        } else {
+            // Issue: we need 'news' in the 'setNews' call
+            // Solution: use Functional State Update
+            setNews(_news => [..._news, ...data])
+        }
+        setIsLoading(false)
+        
+        return () => abc.abort()
+    }, [debouncedSearchInput, searchPage])
+
+    useEffect(() => {
+        memoFetch()
+    }, [memoFetch])
+    */
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);

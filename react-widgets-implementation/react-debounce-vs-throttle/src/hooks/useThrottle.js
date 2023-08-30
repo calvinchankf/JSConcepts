@@ -5,11 +5,11 @@ export const useThrottle = (value, ms) => {
     const nextTime = useRef(0)
 
     useEffect(() => {
-        const diff = Math.max(0, nextTime.current - Date.now())
+        const delay = Math.max(0, nextTime.current - Date.now())
         const timeoutID = setTimeout(() => {
             setThrottledValue(value)
             nextTime.current = Date.now() + ms
-        }, diff);
+        }, delay);
         return () => clearTimeout(timeoutID)
     }, [value, ms]);
 

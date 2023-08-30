@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import './App.css';
-// import debounce from './utils/debounce'
+import { useDebounce } from './utils/useDebounce'
 import NewsCell from './components/NewsCell';
 
 function App() {
@@ -9,9 +9,8 @@ function App() {
     const [searchPage, setSearchPage] = useState(1)
     const [news, setNews] = useState([])
     const [isLoading, setIsLoading] = useState(false)
-    // When you want a component to “remember” some information 
-    // but you don’t want that information to trigger new renders, you can use a react-ref
-    let timeout_ref = useRef(null)
+
+    const debouncedSearchInput = useDebounce(searchInput, 500)
     
     const handleSearch = event => {
         setSearchPage(1)
@@ -31,16 +30,19 @@ function App() {
             setSearchPage(searchPage+1)
         }
     }
+    
+    useEffect(() => {
 
-    // debouncing the fetch
-    const fetchData = async () => {
-        if (searchInput.length === 0) { return }
-        setIsLoading(true)
-        clearTimeout(timeout_ref.current)
-        timeout_ref.current = setTimeout(async () => {
-            console.log(`fetchData keyword ${searchInput} at ${searchPage}`)
-            const url = `https://hn.algolia.com/api/v1/search?query=${searchInput}&page=${searchPage}`
-            const resp = await fetch(url).then(raw => raw.json())
+        const abc = new AbortController()
+
+        const fetchData = async () => {
+            if (debouncedSearchInput.length === 0) {
+                return
+            }
+            setIsLoading(true)
+            console.log(`fetchData keyword ${debouncedSearchInput} at ${searchPage}`)
+            const url = `https://hn.algolia.com/api/v1/search?query=${debouncedSearchInput}&page=${searchPage}`
+            const resp = await fetch(url, { signal: abc.signal }).then(raw => raw.json())
             const data = resp.hits.map((obj, _idx) => ({
                 title: obj.title,
                 url: obj.url,
@@ -50,21 +52,16 @@ function App() {
             if (searchPage === 1) {
                 setNews(data)
             } else {
-                // console.log(page, news, data)
-                // Issue: You can also do a functional update 'setNews(n => ...)' if you only need 'news' in the 'setNews' call
+                // Issue: we need 'news' in the 'setNews' call
                 // Solution: use Functional State Update
                 setNews(_news => [..._news, ...data])
             }
             setIsLoading(false)
-        }, 1337)
-    }
-    // The reason we use useCallback is to avoid fetchdata() being created and over again
-    const fetchMemoData = useCallback(fetchData, [searchInput, searchPage])
-    
+        }
+        fetchData()
 
-    useEffect(() => {
-        fetchMemoData()
-    }, [fetchMemoData])
+        return () => abc.abort()
+    }, [debouncedSearchInput, searchPage])
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);

@@ -14,4 +14,4 @@ export const useThrottle = (value, ms) => {
     }, [value, ms]);
 
     return throttledValue;
-} 
+}

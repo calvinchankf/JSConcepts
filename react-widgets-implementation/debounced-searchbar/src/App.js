@@ -40,24 +40,38 @@ function App() {
             }
             setIsLoading(true)
             console.log(`fetchData keyword ${debouncedSearchInput} at ${searchPage}`)
-            const url = `https://hn.algolia.com/api/v1/search?query=${debouncedSearchInput}&page=${searchPage}`
-            const resp = await fetch(url, { signal: abc.signal }).then(raw => raw.json())
-            const data = resp.hits.map((obj, _idx) => ({
-                title: obj.title,
-                url: obj.url,
-                author: obj.author,
-                points: obj.points
-            }))
-            if (searchPage === 1) {
-                setNews(data)
-            } else {
-                // Issue: we need 'news' in the 'setNews' call
-                // Solution: use Functional State Update
-                setNews(_news => [..._news, ...data])
+            try {
+                const url = `https://hn.algolia.com/api/v1/search?query=${debouncedSearchInput}&page=${searchPage}`
+                const resp = await fetch(url, { signal: abc.signal }).then(raw => raw.json())
+                const data = resp.hits.map((obj, _idx) => ({
+                    title: obj.title,
+                    url: obj.url,
+                    author: obj.author,
+                    points: obj.points
+                }))
+                if (searchPage === 1) {
+                    setNews(data)
+                } else {
+                    // Issue: we need 'news' in the 'setNews' call
+                    // Solution: use Functional State Update
+                    setNews(_news => [..._news, ...data])
+                }
+            } catch (error) {
+                console.error(`error: ${error}`)
+            } finally {
+                setIsLoading(false)
             }
-            setIsLoading(false)
         }
         fetchData()
+
+        /*
+        // we can abort the request if it takes too long
+        setTimeout(() => {
+            console.log('abort')
+            abc.abort()
+        }, 1000)
+        */
+
         return () => abc.abort()
     }, [debouncedSearchInput, searchPage])
 

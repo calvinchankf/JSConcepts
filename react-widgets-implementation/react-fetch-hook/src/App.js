@@ -15,13 +15,15 @@ function App() {
     const [symbol, setSymbol] = useState(SYMBOOLs.ETHBTC)
 
     const respData = useFetch(`${RECENT_TRADES_BASE_URL}${symbol}`)
-    const trades = respData.data
+    const { data: trades, error, isLoading } = respData
 
     const onSymbolChange = e => {
         setSymbol(e.target.value)
     }
 
-    const fallback = (<div>loading...</div>)
+    const loadingFallback = (<div>Loading...</div>)
+    const errorFallback = (<div>Something went wrong...{error?.message}</div>)
+
     const tradeTable = trades !== null && (<table>
         <thead>
             <tr>
@@ -50,7 +52,8 @@ function App() {
             <input type="radio" value="BNBBTC" checked={symbol === 'BNBBTC'} onChange={onSymbolChange}/> BNBBTC
             <input type="radio" value="BNBETH" checked={symbol === 'BNBETH'} onChange={onSymbolChange}/> BNBETH
         </form>
-        {trades == null ? fallback : tradeTable }
+        { isLoading && loadingFallback }
+        { trades !== null ? tradeTable : errorFallback }
     </div>);
 }
 export default App;

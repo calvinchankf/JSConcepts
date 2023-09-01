@@ -3,12 +3,14 @@ import { useEffect, useState } from "react"
 export const useFetch = url => {
     const [data, setData] = useState(null)
     const [error, setError] = useState(null)
+    const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
 
         const ac = new AbortController()
 
         async function fetchData () {
+            setIsLoading(true)
             try {
                 const resp = await fetch(url, {
                     mode: "cors",
@@ -22,6 +24,8 @@ export const useFetch = url => {
                 
             } catch (error) {
                 setError(error)
+            } finally {
+                setIsLoading(false)
             }
         }
         fetchData()
@@ -30,5 +34,5 @@ export const useFetch = url => {
         
     }, [url])
 
-    return { data, error }
+    return { data, error, isLoading }
 }

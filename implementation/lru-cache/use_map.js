@@ -1,78 +1,36 @@
-https://leetcode.com/problems/lru-cache/discuss/46045/JS-implementation-with-very-detailed-explanation-easy-to-understand
-
-/**
- * @constructor
- */
-var ListNode = function (key, val) {
-  this.prev = null;
-  this.next = null;
-  this.val = val;
-  this.key = key;
+// leetcode146
+class DLLNode {
+    constructor(key = -1, val = -1) {
+        this.key = key
+        this.val = val
+        this.prev = null
+        this.next = null
+    }
 }
-var LRUCache = function (capacity) {
-  this.head = new ListNode(-1, -1);
-  this.tail = new ListNode(-1, -1);
-  this.head.next = this.tail;
-  this.tail.prev = this.head;
-  this.size = 0;
-  this.capacity = capacity;
-  this.map = new Map();
-};
-
-/**
-* @param {number} key
-* @returns {number}
-*/
-LRUCache.prototype.get = function (key) {
-  let node = this.map.get(key);
-  if (node) {
-    this.moveToHead(node);
-    return node.val;
-  } else {
-    return -1;
-  }
-};
-
-/**
-* @param {number} key
-* @param {number} value
-* @returns {void}
-*/
-LRUCache.prototype.set = function (key, value) {
-  let node = this.map.get(key);
-  if (!node) {
-    node = new ListNode(key, value);
-    this.attachToHead(node);
-    this.size++;
-  } else {
-    node.val = value;
-    this.moveToHead(node);
-  }
-  if (this.size > this.capacity) {
-    this.removeLast();
-    this.size--;
-  }
-  this.map.set(key, node);
-};
-
-LRUCache.prototype.attachToHead = function (node) {
-  node.next = this.head.next;
-  node.next.prev = node;
-  this.head.next = node;
-  node.prev = this.head;
-}
-
-LRUCache.prototype.moveToHead = function (node) {
-  node.prev.next = node.next;
-  node.next.prev = node.prev;
-  this.attachToHead(node);
-}
-
-LRUCache.prototype.removeLast = function () {
-  let last = this.tail.prev;
-  last.prev.next = this.tail;
-  this.tail.prev = last.prev;
-  this.map.delete(last.key);
+class LRUCache {
+    constructor(capacity) {
+        this.cap = capacity
+        this.map = new Map()
+    }
+    get(key) {
+        if (this.map.has(key) === false) {
+            return -1
+        }
+        const value = this.map.get(key)
+        this.map.delete(key)
+        this.map.set(key, value)
+        return value
+    }
+    put(key, value) {
+        if (this.map.has(key)) {
+            this.map.delete(key)
+        }
+        this.map.set(key, value)
+        if (this.map.size > this.cap) {
+            const oldest = this.map.keys().next().value
+            this.map.delete(oldest)
+        }
+    }
 }
 
 const c = new LRUCache(2)

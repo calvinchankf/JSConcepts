@@ -1,78 +1,62 @@
-// doubly linked list
-function ListNode(key, val) {
-  this.key = key
-  this.val = val
-  this.prev = null
-  this.next = null
+class DLLNode {
+    constructor(key = -1, val = -1) {
+        this.key = key
+        this.val = val
+        this.prev = null
+        this.next = null
+    }
 }
 
-/**
- * @param {number} capacity
- */
-var LRUCache = function (capacity) {
-  this.capacity = capacity
-  this.map = {}
-  this.listHead = new ListNode(-1, -1)
-  this.listTail = new ListNode(-1, -1)
-  this.listLength = 0
-  this.listHead.next = this.listTail
-  this.listTail.prev = this.listHead
-};
-
-/** 
- * @param {number} key
- * @return {number}
- */
-LRUCache.prototype.get = function (key) {
-  if (this.map[key] !== undefined) {
-    this._moveToTail(this.map[key])
-    return this.map[key].val
-  }
-  return -1
-};
-
-/** 
- * @param {number} key 
- * @param {number} value
- * @return {void}
- */
-LRUCache.prototype.put = function (key, value) {
-  let node = this.map[key]
-  if (node == undefined) {
-    node = new ListNode(key, value)
-    this._addToTail(node)
-    this.listLength++
-  } else {
-    node.val = value
-    this._moveToTail(node)
-  }
-  if (this.listLength > this.capacity) {
-    this._removeHead()
-    this.listLength--
-  }
-  this.map[key] = node
-};
-
-LRUCache.prototype._addToTail = function (node) {
-  let last = this.listTail.prev
-  last.next = node
-  node.prev = last
-  node.next = this.listTail
-  this.listTail.prev = node
-};
-
-LRUCache.prototype._moveToTail = function (node) {
-  node.prev.next = node.next
-  node.next.prev = node.prev
-  this._addToTail(node)
-};
-
-LRUCache.prototype._removeHead = function () {
-  let first = this.listHead.next
-  this.listHead.next = first.next
-  first.next.prev = this.listHead
-  delete this.map[first.key]
-};
+class LRUCache {
+    constructor(capacity) {
+        this.cap = capacity
+        this.ht = {}
+        this.htSize = 0
+        this.head = new DLLNode()
+        this.tail = new DLLNode()
+        this.head.next = this.tail
+        this.tail.prev = this.head
+    }
+    _removeNode(node) {
+        node.prev.next = node.next
+        node.next.prev = node.prev
+    }
+    _addToTail(node) {
+        const last = this.tail.prev
+        last.next = node
+        node.prev = last
+        node.next = this.tail
+        this.tail.prev = node
+    }
+    get(key) {
+        if (key in this.ht === false) {
+            return -1
+        }
+        const node = this.ht[key]
+        this._removeNode(node)
+        this._addToTail(node)
+        return node.val
+    }
+    put(key, value) {
+        if (key in this.ht) {
+            const node = this.ht[key]
+            node.val = value
+            this._removeNode(node)
+            this._addToTail(node)
+        } else {
+            const newNode = new DLLNode(key, value)
+            this._addToTail(newNode)
+            this.ht[key] = newNode
+            this.htSize += 1
+        }
+        if (this.htSize > this.cap) {
+            const first = this.head.next
+            this._removeNode(first)
+            delete this.ht[first.key]
+            this.htSize -= 1
+        }
+    }
+}
 
 
 const c = new LRUCache(2)

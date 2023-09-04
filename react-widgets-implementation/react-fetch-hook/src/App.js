@@ -21,10 +21,10 @@ function App() {
         setSymbol(e.target.value)
     }
 
-    const loadingFallback = (<div>Loading...</div>)
-    const errorFallback = (<div>Something went wrong...{error?.message}</div>)
+    const loadingFallback = isLoading ? (<div>Loading...</div>): null
+    const errorFallback = error ? (<div>Something went wrong...{error.message}</div>): null
 
-    const tradeTable = trades !== null && (<table>
+    const tradeTable = trades && (<table>
         <thead>
             <tr>
                 <th>Price</th>
@@ -52,8 +52,9 @@ function App() {
             <input type="radio" value="BNBBTC" checked={symbol === 'BNBBTC'} onChange={onSymbolChange}/> BNBBTC
             <input type="radio" value="BNBETH" checked={symbol === 'BNBETH'} onChange={onSymbolChange}/> BNBETH
         </form>
-        { isLoading && loadingFallback }
-        { trades !== null ? tradeTable : errorFallback }
+        { loadingFallback }
+        { tradeTable }
+        { errorFallback }
     </div>);
 }
 export default App;

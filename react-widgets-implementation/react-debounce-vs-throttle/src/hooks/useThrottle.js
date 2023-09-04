@@ -2,13 +2,13 @@ import { useState, useRef, useEffect } from 'react'
 
 export const useThrottle = (value, ms) => {
     const [throttledValue, setThrottledValue] = useState(value);
-    const nextTime = useRef(0)
+    const restTime = useRef(0)
 
     useEffect(() => {
-        const delay = Math.max(0, nextTime.current - Date.now())
+        const delay = Math.max(0, restTime.current - Date.now())
         const timeoutID = setTimeout(() => {
             setThrottledValue(value)
-            nextTime.current = Date.now() + ms
+            restTime.current = Date.now() + ms
         }, delay);
         return () => clearTimeout(timeoutID)
     }, [value, ms]);

@@ -1,89 +1,41 @@
-function debounce(fn, delay=100) {
-    let timer;
+const input = document.querySelector("input")
+const defaultText = document.getElementById("default")
+const debounceText = document.getElementById("debounce")
+const throttleText = document.getElementById("throttle")
+
+const updateDebounceText = debounce(txt => {
+    debounceText.textContent = txt
+}, 500)
+const updateThrottleText = throttle(txt => {
+    throttleText.textContent = txt
+}, 500)
+
+input.addEventListener("input", e => {
+    defaultText.textContent = e.target.value
+    updateDebounceText(e.target.value)
+    updateThrottleText(e.target.value)
+})
+
+function debounce(cb, delay = 1000) {
+    let timeout
+
     return (...args) => {
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-            fn(...args)
+        clearTimeout(timeout)
+        timeout = setTimeout(() => {
+            cb(...args)
         }, delay)
     }
 }
 
-function throttle(fn, delay=100) {
-    let timer = null
-    let lastArgs = null
-    return (...args) => {
-        lastArgs = args
-        if (!timer) {
-            timer = setTimeout(() => {
-                timer = null
-                fn(...lastArgs)
-            }, delay)
-        }
-    }
-}
-
-function throttle2(fn, t) {
-    let nextTime = 0
+function throttle(cb, delay = 1000) {
+    let restTime = 0
     let curTimeout = null
     return (...args) => {
-        const delay = Math.max(0, nextTime - Date.now())
+        const diff = Math.max(0, restTime - Date.now())
         clearTimeout(curTimeout) // meaning that the calls in-between are cancelled
         curTimeout = setTimeout(() => {
-            fn(...args)
-            nextTime = Date.now() + t
-        }, delay)
-    }
-};
-
-function search(source) {
-    // fetch search results for input
-    console.log(`searching...via ${source}`)
-}
-
-const debouncedSearch = debounce(search, 1000)
-const throttledSearch = debounce(search, 1000)
-
-// document.addEventListener('keydown', search);
-// Call search(event) on every keydown
-
-// keydown     | |      |
-// time     ----------------
-// search      | |      |
-
-const onMove = e => {
-    const m = {
-        'ArrowUp': 0,
-        'ArrowRight': 1,
-        'ArrowDown': 2,
-        'ArrowLeft': 3
-    }
-    if (e.key in m === false) {
-        return
-    }
-    if (m[e.key] === 0) {
-        debouncedSearch('debounce')
-    } else if (m[e.key] === 2) {
-        throttledSearch('trottle')
+            cb(...args)
+            restTime = Date.now() + delay
+        }, diff)
     }
 }
-document.addEventListener('keydown', onMove);
-// Call search only when it's been 100ms since the last keydown
-
-// keydown    | |      |
-// time     ----------------
-// search           |      | 
-//              |100|  |100|
-
-// document.addEventListener('keydown', throttle(search, 1000));
-// Call search at most once per 100ms
-
-// keydown     | |     |  |
-// time     -----------------
-// search          |       | 
-//             |100|   |100|
-
-
-// keydown     1234567 8  9
-// time     -------------------
-// search          1    6     9 (i.e. corresponding 1, 6 and 9)
-//             |100||100| |100|

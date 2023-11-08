@@ -28,14 +28,14 @@ function debounce(cb, delay = 1000) {
 }
 
 function throttle(cb, delay = 1000) {
-    let restTime = 0
-    let curTimeout = null
-    return (...args) => {
-        const diff = Math.max(0, restTime - Date.now())
-        clearTimeout(curTimeout) // meaning that the calls in-between are cancelled
-        curTimeout = setTimeout(() => {
+    let expriedAt = 0
+    let timeoutID = null
+	return function (...args) {
+        const remainingTime = Math.max(0, expriedAt - Date.now())
+        clearTimeout(timeoutID)
+		timeoutID = setTimeout(() => {
+            expriedAt = Date.now() + delay
             cb(...args)
-            restTime = Date.now() + delay
-        }, diff)
-    }
+        }, remainingTime)
+	}
 }

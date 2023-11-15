@@ -41,6 +41,7 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 1. [Callback vs Promise vs Generator vs Async/wait](/js-knowledge/callback-promise-generator-asyncwait/readme.md)
 1. [Currying](/js-knowledge/currying/readme.md/)
 1. [Mixins](/js-knowledge/mixins/readme.md/)
+1. [React](/js-knowledge/react/readme.md/)
 
 ## CSS
 

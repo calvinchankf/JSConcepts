@@ -47,7 +47,7 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 
 1. [What is Box Model](/css/box-model/readme.md)
 1. [What is Flex Box](/css/flex-box/readme.md)
-1. [CSS Priority](/css/priority/readme.md)
+1. [CSS Priority/Speciicity](/css/priority/readme.md)
 
 ## How to implement
 

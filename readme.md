@@ -16,6 +16,8 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 1. [Common DOM Properties and Methods](/browser/dom-properties-methods/readme.md)
 1. [Scroll Event](/browser/scroll/readme.md)
 1. [Check User Activity On a Page](/browser/check-user-activity-on-page)
+1. [Cookies Security](/browser/cookies/security.md)
+1. [Javascript Security](/browser/js/security.md)
 
 ## JS Knowledge
 

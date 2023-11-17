@@ -1,0 +1,26 @@
+/* Add CSS here */
+body {
+}
+
+.board {
+    width: 160px;
+}
+
+.row {
+    display: flex;
+    border-top: 1px solid black;
+}
+
+.row:last-child {
+    border-bottom: 1px solid black;
+}
+
+.col {
+    width: 40px;
+    height: 40px;
+    border-left: 1px solid black;
+}
+
+.col:last-child {
+    border-right: 1px solid black;
+}

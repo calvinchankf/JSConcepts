@@ -24,8 +24,6 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 1. [Memory Management](/js-knowledge/memory-profile-on-web/)
 1. [Event Loop](/js-knowledge/event-loop/readme.md)
 1. [Event Driven Architecture](/js-knowledge/event-emitter/readme.md)
-1. [Event Emitter Usage](/js-knowledge/event-emitter/basic.js)
-1. [Implement Event Emitter](/js-knowledge/event-emitter/)
 1. [Self-invoking/Immediate function](/js-knowledge/self-invoking/)
 1. [Closure](/js-knowledge/closure/)
 1. [What is 'this'](/js-knowledge/this/)
@@ -59,6 +57,7 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 1. [Array Flatten](/implementation/array/flatten.js)
 1. [Array ForEach](/implementation/array/forEach.js)
 1. [Objects Merge](/implementation/objects-merge/index.js)
+1. [Implement Event Emitter](/implementation/event-emitter/)
 1. LRU
     - [using Map](/lru-cache/use_map.js)
     - [using Doubly Linked List and Hash Table](/lru-cache/use_linked_list_hashtable.js)

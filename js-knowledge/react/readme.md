@@ -24,6 +24,20 @@ There are a few good use cases for refs:
 - Triggering imperative animations.
 - Integrating with third-party DOM libraries.
 
+## How to
+
+#### Update the state using previous value
+
+functional update. e.g. `setNews(_news => [..._news, ...data])`
+
+#### Reference a value that’s not needed for rendering
+
+Use useRef
+
+#### Perform actions when user click 'enter'
+
+Use form element + e.preventDefault()
+
 ## React Context vs Redux
 
 ### React Context

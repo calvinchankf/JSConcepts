@@ -23,7 +23,6 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 
 1. [Memory Management](/js-knowledge/memory-profile-on-web/)
 1. [Event Loop](/js-knowledge/event-loop/readme.md)
-1. [Event Driven Architecture](/js-knowledge/event-emitter/readme.md)
 1. [Self-invoking/Immediate function](/js-knowledge/self-invoking/)
 1. [Closure](/js-knowledge/closure/)
 1. [What is 'this'](/js-knowledge/this/)

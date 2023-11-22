@@ -52,6 +52,28 @@ Don’t call Hooks from regular JavaScript functions. Instead, you can:
 ✅ Call Hooks from custom Hooks (we’ll learn about them on the next page).
 By following this rule, you ensure that all stateful logic in a component is clearly visible from its source code.
 
+## Server Side Rendering vs Client Side Rendering
+
+#### Rendering Process
+
+✅ SSR: the server generates the HTML content for a web page and sends the fully rendered page to the client's browser.
+❌ CSR: 2-round trips are needed to download the whole page with content
+
+#### Performance / User Experience
+
+✅ SSR: Fast initial page load, 1 round trip is needed to receive a fully rendered page from server
+✅ CSR: Slow initial page load, but faster loading time on subsequent page/components update
+
+#### Search Engine Optimization (SEO)
+
+✅ SSR: SEO-friendly because search engines can easily crawl and index the content since it's present in the initial HTML
+❌ CSR: challenging for search engines
+
+#### Development and Maintenance
+
+❌ SSR: Developers need to consider handling data either on server side or on client side, which add complexity to the project
+✅ CSR: Everything happens on client side, easier to manage
+
 ## React Context vs Redux
 
 ### React Context

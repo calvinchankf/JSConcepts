@@ -110,6 +110,7 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 1. [Crypto Prices with Glitch mock](/react-widgets-implementation/stock-prices/)
 1. [React Suspense Playground](/react-widgets-implementation/suspense-playground/)
 1. [TODO List](/react-widgets-implementation/todo-list/)
+1. [Context Counter](/react-widgets-implementation/context-counter/)
 1. [useDebouncing vs useThrottling hooks](/react-widgets-implementation/react-debounce-vs-throttle/)
 1. [useFetch hook](/react-widgets-implementation/react-fetch-hook/)
 

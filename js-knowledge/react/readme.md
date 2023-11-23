@@ -52,6 +52,20 @@ Don’t call Hooks from regular JavaScript functions. Instead, you can:
 ✅ Call Hooks from custom Hooks (we’ll learn about them on the next page).
 By following this rule, you ensure that all stateful logic in a component is clearly visible from its source code.
 
+## Type vs Interface in Typescript
+
+#### Type
+
+- create a new name for a primitive type. i.e. alias
+- tuple types, conditional types
+- can use intersection to merge types, show errors if merge conflict happens
+- can use union to check a value of different specified types
+
+#### Interface
+
+- used for an object
+- can extends, show errors if merge conflict happens
+
 ## Server Side Rendering vs Client Side Rendering
 
 #### Rendering Process

@@ -113,6 +113,7 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 1. [Context Counter](/react-widgets-implementation/context-counter/)
 1. [useDebouncing vs useThrottling hooks](/react-widgets-implementation/react-debounce-vs-throttle/)
 1. [useFetch hook](/react-widgets-implementation/react-fetch-hook/)
+1. [Random Users](/react-widgets-implementation/random-users/)
 
 ## Common Algorithms of DOM Elements
 

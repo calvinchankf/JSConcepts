@@ -114,6 +114,7 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 1. [useDebouncing vs useThrottling hooks](/react-widgets-implementation/react-debounce-vs-throttle/)
 1. [useFetch hook](/react-widgets-implementation/react-fetch-hook/)
 1. [Random Users](/react-widgets-implementation/random-users/)
+1. [Books Paginated Search](/react-widgets-implementation/books-paginated-search/)
 
 ## Common Algorithms of DOM Elements
 

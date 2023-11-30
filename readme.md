@@ -116,7 +116,7 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 1. [Random Users](/react-widgets-implementation/random-users/)
 1. [Books Paginated Search](/react-widgets-implementation/books-paginated-search/)
 
-## React Widgets Implementation
+## Angular Widgets Implementation
 
 1. [Temperature Converter](/angular-widgets-implementation/temperature-converter/)
 

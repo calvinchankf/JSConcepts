@@ -25,3 +25,15 @@ greeting.call(customer1, {
   a: 1,
   b: 2
 }); // [object Object] Leo
+
+/*
+  Implement your own Function.prototype.call without calling the native call method. To avoid overwriting the actual Function.prototype.call, implement the function as Function.prototype.myCall
+*/
+/**
+ * @param {any} thisArg
+ * @param {...*} argArray
+ * @return {any}
+ */
+Function.prototype.myCall = function (thisArg, ...argArray) {
+  return this.bind(thisArg)(...argArray);
+};

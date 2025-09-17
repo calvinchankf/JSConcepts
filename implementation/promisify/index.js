@@ -14,6 +14,19 @@ const promisify = fn => {
         })
     }
 };
+/*
+    or
+*/
+var promisify2 = function(fn) {
+    return function(...args) {
+        return new Promise((resolve, reject) => {
+            fn.call(this, (result, err) =>
+                err ? reject(err) : resolve(result),
+                ...args
+            );
+        });
+  }
+};
 
 // test
 function do_something(...args) {

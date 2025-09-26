@@ -115,6 +115,7 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 1. [useFetch hook](/react-widgets-implementation/react-fetch-hook/)
 1. [Random Users](/react-widgets-implementation/random-users/)
 1. [Books Paginated Search](/react-widgets-implementation/books-paginated-search/)
+1. [Contact Form](/react-widgets-implementation/contact-form/)
 
 ## Angular Widgets Implementation
 

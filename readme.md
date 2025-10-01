@@ -76,8 +76,9 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 1. [Virtual Dom](/implementation/virtual-dom/prototype/main.html)
 1. [Fetch Timeout with Retry](/implementation/fetch-timeout/index.js)
 1. [Server-Sent Events](/implementation/server-sent-events/readme.md)
-1. [Promise.pool](/implementation/promise.pool/index.js)
 1. [Promisify](/implementation/promisify/index.js)
+1. [Promise.all](/implementation/promise.all/index.js)
+1. [Promise.pool](/implementation/promise.pool/index.js)
 
 ## Vanilla Widgets Implementation
 
@@ -117,6 +118,7 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 1. [Books Paginated Search](/react-widgets-implementation/books-paginated-search/)
 1. [Contact Form](/react-widgets-implementation/contact-form/)
 1. [Subsequence Fetches](/react-widgets-implementation/job-board/)
+1. [Accordion](/react-widgets-implementation/accordion/)
 
 ## Angular Widgets Implementation
 

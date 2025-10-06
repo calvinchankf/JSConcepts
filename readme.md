@@ -122,6 +122,7 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 1. [Subsequence Fetches](/react-widgets-implementation/job-board/)
 1. [Accordion](/react-widgets-implementation/accordion/)
 1. [Star Rating](/react-widgets-implementation/star-rating/)
+1. [Digital Clock](/react-widgets-implementation/digital-clock/)
 
 ## Angular Widgets Implementation
 

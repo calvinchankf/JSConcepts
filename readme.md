@@ -80,6 +80,7 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 1. [Promise.all](/implementation/promise.all/index.js)
 1. [Promise.pool](/implementation/promise.pool/index.js)
 1. [JSON.stringify](/implementation/stringify/index.ts)
+1. [Squash Object](/implementation/squash-object/index.ts)
 
 ## Vanilla Widgets Implementation
 

@@ -123,6 +123,7 @@ This repo is on <http://calvinchankf.com/JSConcepts/> , thanks Github Pages
 1. [Accordion](/react-widgets-implementation/accordion/)
 1. [Star Rating](/react-widgets-implementation/star-rating/)
 1. [Digital Clock](/react-widgets-implementation/digital-clock/)
+1. [Tic Tac Toe](/react-widgets-implementation/tic-tac-toe/)
 
 ## Angular Widgets Implementation
 

@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  color: black;
+  background-color: white;
+}
+
+main {
+  padding: 1rem;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.traffic-light-container {
+  background-color: #000;
+  flex-direction: column;
+  border-radius: 8px;
+  display: flex;
+  padding: 8px;
+  gap: 8px;
+  width: fit-content;
+}
+
+.traffic-light {
+  --size: 50px;
+  background-color: #555;
+  border-radius: var(--size);
+  height: var(--size);
+  width: var(--size);
+  opacity: 0.25;
+}
+
+#red {
+  background-color: red;
+}
+
+#yellow {
+  background-color: yellow;
+}
+
+#green {
+  background-color: lime;
+}
+
+.traffic-light.active {
+  opacity: 1;
+  box-shadow: 0 0 12px 2px;
+}

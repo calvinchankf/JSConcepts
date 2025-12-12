@@ -101,6 +101,7 @@ This repo is on <http://calvinchankf.com/FrontendConcepts/> , thanks Github Page
 1. [Analog Clock](/vanilla-widgets-implementation/analog-clock/index.html)
 1. [Tic Tac Toe](/vanilla-widgets-implementation/tic-tac-toe/index.html)
 1. [Mine Sweeper](/vanilla-widgets-implementation/mine-sweeper/mine_sweeper.html)
+1. [Traffic Light](/vanilla-widgets-implementation/traffic-light/index.html)
 
 ## React Widgets Implementation
 
